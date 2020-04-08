@@ -5,3 +5,4 @@ ln -s /home/lucas/dev/dotfiles/sxhkd /home/lucas/.config/
 ln -s /home/lucas/dev/dotfiles/ranger /home/lucas/.config/
 ln -s /home/lucas/dev/dotfiles/nvim /home/lucas/.config/
 ln -s /home/lucas/dev/dotfiles/bspwm /home/lucas/.config/
+ln -s /home/lucas/dev/dotfiles/.xinitrc /home/lucas/
