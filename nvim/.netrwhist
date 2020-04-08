@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/lucas'
+let g:netrw_dirhist_4='/etc/X11/xinit/xinitrc.d'
+let g:netrw_dirhist_3='/home/lucas/.config/nvim'
+let g:netrw_dirhist_2='/home/lucas/.config/bspwm'
+let g:netrw_dirhist_1='/etc/X11/xorg.conf.d'

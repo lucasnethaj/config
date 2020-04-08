@@ -1,0 +1,7 @@
+ln -s /home/lucas/dev/dotfiles/.zshrc /home/lucas/.zshrc
+ln -s /home/lucas/dev/dotfiles/.aliases /home/lucas/
+ln -s /home/lucas/dev/dotfiles/.profile /home/lucas/
+ln -s /home/lucas/dev/dotfiles/sxhkd /home/lucas/.config/
+ln -s /home/lucas/dev/dotfiles/ranger /home/lucas/.config/
+ln -s /home/lucas/dev/dotfiles/nvim /home/lucas/.config/
+ln -s /home/lucas/dev/dotfiles/bspwm /home/lucas/.config/
