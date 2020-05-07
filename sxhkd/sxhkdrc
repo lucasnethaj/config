@@ -187,6 +187,8 @@ mod1 + @button1
 alt + space 
 	dmenu_recent -fn 'xos4 Terminus:size=15' -i -l 14 -w 600 -y $PANEL_HEIGHT
 
+alt + d
+	rofi -show drun
 
 #alt + p
 #	dmenu_recent -h $PANEL_HEIGHT -fn 'xos4 Terminus:size=15' -i

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ln -s $HOME/dev/dotfiles/.zshrc $HOME/.zshrc
 ln -s $HOME/dev/dotfiles/.aliases $HOME/
 ln -s $HOME/dev/dotfiles/.profile $HOME/
