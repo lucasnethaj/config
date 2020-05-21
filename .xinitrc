@@ -4,8 +4,6 @@
 #
 # Executed by startx (run your window manager from here)
 
-[[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
-
 
 userresources=$XDG_CONFIG_HOME/Xresources
 usermodmap=$XDG_CONFIG_HOME/Xmodmap

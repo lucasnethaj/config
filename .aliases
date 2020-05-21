@@ -1,3 +1,5 @@
+# Pointed to by shell rc file
+#
 ## Alias section 
 alias cp='cp -i'                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -5,3 +7,14 @@ alias free='free -m'                                            # Show sizes in 
 alias gitu='git add . && git commit && git push'
 #alias cd='cd & ls'
 alias cdr='cd `git rev-parse --show-toplevel`/\!*'
+#list all
+alias lsa='ls -A'
+
+#capslock (because it should be disabled by default)
+alias caps='xdotool key Caps_Lock'
+
+#reload sh and config files
+function reload() {
+	source $HOME/.zshrc
+	pkill -USR1 -x sxhkd
+}

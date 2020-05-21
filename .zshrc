@@ -22,12 +22,9 @@ HISTSIZE=1000
 SAVEHIST=500
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-function reload() {
-	source $HOME/.zshrc
-	source $HOME/.profile
-	source $HOME/.aliases
-	pkill -USR1 -x sxhkd
-}
+#sources
+source $HOME/.profile
+source $HOME/.aliases
 
 ## Keybindings section
 bindkey -e

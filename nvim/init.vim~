@@ -7,7 +7,7 @@ set showcmd
 set showmatch
 
 colo desert
-
+syntax on
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
