@@ -194,10 +194,10 @@ alt + d
 #	dmenu_recent -h $PANEL_HEIGHT -fn 'xos4 Terminus:size=15' -i
 
 alt + ctrl + Return
-	x-terminal-emulator
+	$TERMINAL
 
 alt + ctrl + t
-	x-terminal-emulator	
+	$TERMINAL
 
 alt + f
 	rofi-finder.sh
