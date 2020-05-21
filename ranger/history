@@ -1,10 +1,3 @@
-search pic
-search cam
-search poh
-search phon
-open_with kklkhhhhhllkkjkj
-shell mkdir portofilio
-shell
 rename portofilio
 move
 mv
@@ -23,26 +16,35 @@ open_with 15
 open_with 0
 shell gwenview animated.gif
 sh
-shell 
 shell -p 
 du
 shell du -sh bilanimation
-
 open_with gwenview
 search .lo
 search .local
 search share
 search mozilla
 search .mozilla
-search fir
-delete
-search dev
 search .waterfox
 search bin
-open_with 
 open_with bash
 shell ./waterfox
 search 
 search .loc
 shell h
 search angr
+search .mozi
+search dve
+search deb
+search dev
+search fir
+shell du -sh chrome/
+shell 
+search dotl
+search dot
+search dotfi
+search chrom
+open_with 
+delete
+
+shell nvim userContent.css

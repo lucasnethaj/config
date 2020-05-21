@@ -4,7 +4,7 @@
 umask 022
 
 # Set our default path
-PATH="/usr/local/sbin:/usr/local/bin:/usr/bin/core_perl:/usr/bin:$HOME/.config/bspwm/panel:$HOME/.bin"
+#PATH="/usr/local/sbin:/usr/local/bin:/usr/bin/core_perl:/usr/bin:$HOME/.config/bspwm/panel:$HOME/.bin"
 export PANEL_FIFO="/tmp/panel-fifo"
 export PATH
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -19,6 +19,9 @@ export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtkrc-2.0"
 export PATH="$PATH:`pwd`/.local/src/flutter/bin"
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/dev/
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 source $HOME/.aliases
 
 # cleanup

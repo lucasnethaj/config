@@ -20,3 +20,8 @@ function reload() {
 	source $HOME/.zshrc
 	pkill -USR1 -x sxhkd
 }
+
+function xnest() {
+Xephyr -br -ac -noreset -screen 800x600 :1 &
+DISPLAY=:1 bspwm
+}
