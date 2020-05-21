@@ -42,3 +42,7 @@ search bin
 open_with 
 open_with bash
 shell ./waterfox
+search 
+search .loc
+shell h
+search angr

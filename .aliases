@@ -9,6 +9,8 @@ alias gitu='git add . && git commit && git push'
 alias cdr='cd `git rev-parse --show-toplevel`/\!*'
 #list all
 alias lsa='ls -A'
+#terminal filemanager
+alias f='ranger'
 
 #capslock (because it should be disabled by default)
 alias caps='xdotool key Caps_Lock'

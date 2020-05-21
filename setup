@@ -8,4 +8,6 @@ ln -s $HOME/dev/dotfiles/ranger $HOME/.config/
 ln -s $HOME/dev/dotfiles/nvim $HOME/.config/
 ln -s $HOME/dev/dotfiles/bspwm $HOME/.config/
 ln -s $HOME/dev/dotfiles/.xinitrc $HOME/
-ln -s /home/lucas/dev/dotfiles/rofi /home/lucas/.config
+ln -s $HOME/dotfiles/rofi $HOME/.config/
+ln -s $HOEM/dotfiles/login $HOME/.config/
+ln -s $HOME/dotfiles/chrome $HOME/.mozilla/firefox/*.default/
