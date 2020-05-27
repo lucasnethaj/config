@@ -11,3 +11,4 @@ ln -s $HOME/dev/dotfiles/.xinitrc $HOME/
 ln -s $HOME/dev/dotfiles/rofi $HOME/.config/
 ln -s $HOME/dev/dotfiles/login $HOME/.config/
 ln -s $HOME/dev/dotfiles/chrome $HOME/.mozilla/firefox/*.default/
+ln -s $HOME/dev/dotfiles/Xresources $HOME/.config
