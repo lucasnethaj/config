@@ -12,7 +12,7 @@ export BSPWM_SOCKET="/tmp/bspwm-socket"
 export PANEL_HEIGHT=25
 export XDG_CONFIG_DIRS=/usr/etc/xdg:/etc/xdg
 export GUI_EDITOR=/usr/bin/nvim
-export BROWSER=/usr/bin/qutebrowser
+export BROWSER=/usr/bin/firefox
 export TERMINAL=/usr/bin/xterm
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=/usr/bin/nvim
@@ -36,9 +36,9 @@ if test -d /etc/profile.d/; then
 fi
 
 # Source global bash config
-if test "$PS1" && test "$BASH" && test -r /etc/bash.bashrc; then
-	. /etc/bash.bashrc
-fi
+#if test "$PS1" && test "$BASH" && test -r /etc/bash.bashrc; then
+	#. /etc/bash.bashrc
+#fi
 
 # Termcap is outdated, old, and crusty, kill it.
 unset TERMCAP

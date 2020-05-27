@@ -26,6 +26,7 @@ WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider
 source $HOME/.profile
 source $HOME/.aliases
 
+
 ## Keybindings section
 bindkey -e
 bindkey '^[[7~' beginning-of-line                               # Home key
@@ -190,3 +191,6 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
   		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     ;;
 esac
+
+#Set vi mode
+#bindkey -v

@@ -48,5 +48,3 @@ thunar --daemon &
 ## Welcome message
 #sleep 1 && notify-send "Welcome to Manjaro-bspwm! " "Press super + F1 to show keybindings" &
 #
-#enable natural scrolling
-xinput set-prop SynPs/2\ Synaptics\ Touchpad 286 1
