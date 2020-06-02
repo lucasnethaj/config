@@ -2,8 +2,7 @@
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
-setopt nocheckjobs                                              # Don't warn about running processes when exiting
+setopt rcexpandparam                                            # Array expension with parameters setopt nocheckjobs                                              # Don't warn about running processes when exiting
 setopt numericglobsort                                          # Sort filenames numerically when it makes sense
 setopt nobeep                                                   # No beep
 setopt appendhistory                                            # Immediately append history instead of overwriting
@@ -25,7 +24,6 @@ WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider
 #sources
 source $HOME/.profile
 source $HOME/.aliases
-
 
 ## Keybindings section
 bindkey -e
@@ -68,10 +66,12 @@ setopt prompt_subst
 PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}>%B%(?.%{$fg[cyan]%}.%{$fg[red]%})>%{$reset_color%}%b " # Print some system information when the shell is first started
 # Print a greeting message when shell is started
 echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
+#pfetch
 ## Prompt on right side:
 #  - shows status of git when in git repository (code adapted from https://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
 #  - shows exit status of previous command (if previous command finished with an error)
 #  - is invisible, if neither is the case
+
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"                              # plus/minus     - clean repo
@@ -192,5 +192,4 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
     ;;
 esac
 
-#Set vi mode
-#bindkey -v
+ENABLE_AUTO_TITLE="true"

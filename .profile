@@ -18,7 +18,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtkrc-2.0"
-export PATH="$PATH:`pwd`/.local/src/flutter/bin"
+export PATH="$HOME/bin":$PATH
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/dev/
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
@@ -34,11 +34,6 @@ if test -d /etc/profile.d/; then
 	done
 	unset profile
 fi
-
-# Source global bash config
-#if test "$PS1" && test "$BASH" && test -r /etc/bash.bashrc; then
-	#. /etc/bash.bashrc
-#fi
 
 # Termcap is outdated, old, and crusty, kill it.
 unset TERMCAP

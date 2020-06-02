@@ -8,6 +8,7 @@ set showmatch
 
 colo desert
 
+vnoremap <C-c> "*y
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
