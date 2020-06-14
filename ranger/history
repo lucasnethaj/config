@@ -1,17 +1,3 @@
-rename portofilio
-move
-mv
-here
-open_with scribus
-search scre
-search des
-open
-shell xli 0003.png 
-shell xloadimage 0003.png 
-search anima
-shell xterm &
-o
-rename 0250.png
 open_with 15
 open_with 0
 shell gwenview animated.gif
@@ -29,7 +15,6 @@ search .waterfox
 search bin
 open_with bash
 shell ./waterfox
-search 
 search .loc
 shell h
 search angr
@@ -44,7 +29,22 @@ search dotl
 search dot
 search dotfi
 search chrom
-open_with 
-delete
 
 shell nvim userContent.css
+search .con
+shell nvim machine
+search mach
+rename Domnik Fike - SYNDROME
+rename Dominic Fike - 1.opus
+rename Dominic Fike - Falling Asleep.opus
+rename Dominic Fike - PIMPIN' ft. SLYTE.opus
+search luc
+search home
+search x
+search MUS
+search musi
+search 
+search pic
+search img
+open_with 
+delete

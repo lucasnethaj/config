@@ -40,5 +40,5 @@ else
 
 endif " has("autocmd")
 
-vnoremap <C-c> "*y :let @+=@*<CR>
+vnoremap <C-c> "+y
 map <C-v> "+p

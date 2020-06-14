@@ -69,7 +69,7 @@ alt + {_,shift + }Tab
     bspc node -f {next,prev}
 
 # Go to specific window
-super + Tab
+ctrl + Tab
 	WindowSelector
 	
 #Focus windows by direction, works with multihead
