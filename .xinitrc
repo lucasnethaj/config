@@ -10,6 +10,8 @@ usermodmap=$XDG_CONFIG_HOME/Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+
+setxkbmap -option caps:escape
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then

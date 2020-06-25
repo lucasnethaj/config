@@ -3,7 +3,8 @@ set relativenumber
 set autoread
 set mouse=a
 set showcmd
-
+set ft=dosini
+set tabstop=3
 set showmatch
 
 colo desert

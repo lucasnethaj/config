@@ -1,6 +1,6 @@
 #! /bin/sh
-gap=15
-PANEL_HEIGHT=28
+gap=5
+PANEL_HEIGHT=0
 export gap
 export PANEL_HEIGHT
 
@@ -110,6 +110,9 @@ bspc config external_rules_command /usr/bin/pseudo_automatic_mode
 #Source autostartfile. Uncomment this if you use bspwm-git
 #. $HOME/.config/bspwm/autostart
 #limepanel &
+polybar default &
+exec ~/.local/bin/desknamer.sh &
+
 # Alter compton settings if using intel graphics
 GRAPHIC_CARD=$(lspci | grep -i "vga" | sed 's/.*://' | sed 's/(.*//' | sed 's/^[ \t]*//')
 if [[ $(echo $GRAPHIC_CARD | grep -i 'intel\|lenovo') != "" ]]; then MCODE='initrd=\intel-ucode.img'

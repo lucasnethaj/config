@@ -7,6 +7,7 @@ umask 022
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/bin/core_perl:/usr/bin:$HOME/.config/bspwm/panel:$HOME/.bin"
 export PANEL_FIFO="/tmp/panel-fifo"
 export PATH
+PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 export XDG_CONFIG_HOME="$HOME/.config"
 export BSPWM_SOCKET="/tmp/bspwm-socket"
 export PANEL_HEIGHT=25
@@ -18,10 +19,6 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtkrc-2.0"
-export PATH="$PATH:`pwd`/.local/src/flutter/bin"
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/dev/
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 source $HOME/.aliases
 
 # cleanup
