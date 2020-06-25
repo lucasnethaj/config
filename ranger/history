@@ -1,4 +1,3 @@
-du
 shell du -sh bilanimation
 open_with gwenview
 search .lo
@@ -42,9 +41,10 @@ search img
 colo desert
 search fire
 search .loc
-open_with 
 search hj
-open_with nvim
 delete
+open_with 
+open_with nvim
 search pic
 search ca
+search scre
