@@ -10,6 +10,8 @@ alias cdr='cd `git rev-parse --show-toplevel`/\!*'		# Go to root git dir
 alias lsa='ls -A'						# list all
 alias ls='ls --color=auto'					# enable colors for ls 
 alias f='ranger' 						# terminal filemanager
+alias plz='sudo' 						# Ask kindly
+alias suod='sudo' 					# Typos
 
 alias caps='xdotool key Caps_Lock'				#capslock (because it should be disabled by default)
 

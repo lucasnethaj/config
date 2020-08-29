@@ -6,7 +6,7 @@ umask 022
 # Set our default path
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/bin/core_perl:/usr/bin:$HOME/.config/bspwm/panel:$HOME/.bin"
 export PANEL_FIFO="/tmp/panel-fifo"
-export PATH
+#export PATH
 PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 export XDG_CONFIG_HOME="$HOME/.config"
 export BSPWM_SOCKET="/tmp/bspwm-socket"

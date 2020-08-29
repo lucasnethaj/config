@@ -67,10 +67,6 @@ super + {m,n}
 # cycle windows
 alt + {_,shift + }Tab
     bspc node -f {next,prev}
-
-# Go to specific window
-super + Tab
-	WindowSelector
 	
 #Focus windows by direction, works with multihead
 super +  {h,j,k,l}
@@ -98,6 +94,10 @@ super + ctrl + {h,j,k,l}
 super + shift + space 
 	bspc desktop -l next
 	
+# Toggle fullscreen
+super + shift + f
+	bspc node -t {fullscreen,tiled}	
+
 # Balance tree
 super + b
 	bspc node @/ -B
@@ -188,8 +188,9 @@ alt + d
 
 #Window Switcher
 
-super + tab
+super + Tab
 	rofi -show window
+
 #alt + p
 #	dmenu_recent -h $PANEL_HEIGHT -fn 'xos4 Terminus:size=15' -i
 
@@ -212,7 +213,6 @@ alt + ctrl + f
 Print
 	scrot
 
-	
 #
 # Media keys
 #
@@ -248,6 +248,10 @@ ctrl + alt + {n,comma}
 # Lock
 ctrl + alt + o
 		  i3lock -c 000000
+
+# Scratchpad
+#alt + s
+		  #bspwm-toogle-visibillity xterm xterm --take-first
 
 # power menu
 ctrl + alt + p

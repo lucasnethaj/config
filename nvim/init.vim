@@ -4,11 +4,14 @@ set autoread
 set mouse=a
 set showcmd
 set ft=dosini
+set shiftwidth=3
 set tabstop=3
+set noexpandtab
 set showmatch
 
-colo desert
+colo delek
 
+command WSudo ':w suda://%'
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -43,3 +46,19 @@ endif " has("autocmd")
 
 vnoremap <C-c> "*y :let @+=@*<CR>
 map <C-v> "+p
+
+map <C-s> :w<CR>
+map <C-Tab> :tabNext<CR>
+
+let g:airline_theme='deus'
+
+" PLUGINS
+call plug#begin()
+Plug 'https://github.com/pangloss/vim-javascript.git'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'neomake/neomake'
+Plug 'dense-analysis/ale'
+Plug 'https://github.com/lambdalisue/suda.vim.git'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()

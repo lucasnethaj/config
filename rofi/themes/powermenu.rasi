@@ -19,7 +19,7 @@
 
   option-6-listview-spacing:            10px;
 
-  menu-window-padding:                   5px 15px;
+  menu-window-padding:                   15px 15px;
   menu-inputbar-margin:                  10px 0px;
   menu-prompt-padding:                   10px 20px 10px 20px;
   menu-prompt-margin:                    0px 0px 0px -2px;
@@ -30,7 +30,7 @@
 /* ########### */
 
 #window {
-  width: 29%;
+  width: 28%;
   height: 20%;
   location: center;
 }
@@ -66,7 +66,7 @@
 }
 #window {
   padding: @menu-window-padding;
-  children: [ inputbar, horibox ];
+  children: [ horibox ];
 }
 #inputbar {
   children: [ textbox-prompt-colon, prompt ];

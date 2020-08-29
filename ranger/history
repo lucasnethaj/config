@@ -1,18 +1,3 @@
-shell du -sh bilanimation
-open_with gwenview
-search .lo
-search .local
-search share
-search mozilla
-search .mozilla
-search .waterfox
-search bin
-open_with bash
-shell ./waterfox
-shell h
-search angr
-search .mozi
-search dve
 search deb
 search dev
 search fir
@@ -42,9 +27,24 @@ colo desert
 search fire
 search .loc
 search hj
-delete
 open_with 
 open_with nvim
-search pic
 search ca
 search scre
+search 10
+shell cp ove3.js ove4.js
+mkdir general.js
+shell nvim general.js
+search bin
+search work
+search Work
+search worh
+search wor
+search .lo
+search .loca
+search conf
+search mop
+delete
+search .conf
+search pic
+search com
