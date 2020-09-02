@@ -15,11 +15,11 @@ configuration {
  
 #window {
     border: 0;
-    location: north;
-    border-radius: 4px;
-    padding: 40;
-    width: 50%;
-    height: 33%;
+    location: west;
+    border-radius: 25;
+    padding: 30;
+    width: 30%;
+    height: 100%;
 }
  
 #mainbox {
@@ -50,7 +50,7 @@ configuration {
 }
  
 #element selected {
-    background-color: #00a0e6;
+    background-color: #0075d069;
     text-color: #EFEFEF;
 }
  

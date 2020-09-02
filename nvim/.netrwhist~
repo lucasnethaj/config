@@ -1,7 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
-let g:netrw_dirhist_5='/usr/lib/systemd/user'
-let g:netrw_dirhist_4='/etc'
-let g:netrw_dirhist_3='/etc/modules-load.d'
-let g:netrw_dirhist_2='/etc/modprobe.d'
-let g:netrw_dirhist_1='/usr/lib/sysusers.d'
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/lucas/dev/dotfiles/rofi'
+let g:netrw_dirhist_1='/home/lucas/.config/systemd/user'

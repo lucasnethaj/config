@@ -1,5 +1,3 @@
-search deb
-search dev
 search fir
 shell du -sh chrome/
 shell 
@@ -27,7 +25,6 @@ colo desert
 search fire
 search .loc
 search hj
-open_with 
 open_with nvim
 search ca
 search scre
@@ -45,6 +42,9 @@ search .loca
 search conf
 search mop
 delete
-search .conf
 search pic
 search com
+open_with 
+search .conf
+search kde
+shell ./dmenulatex-type.sh

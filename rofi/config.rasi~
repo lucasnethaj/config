@@ -2,6 +2,8 @@ configuration {
     display-drun:                   "Apps";
     display-window:                 "Window";
     show-icons:true;
+	 modi:									"combi";
+	 combi-modi:							"window, run, ssh, drun";
 }
  
 * {
@@ -15,15 +17,15 @@ configuration {
  
 #window {
     border: 0;
-    location: north;
-    border-radius: 4px;
-    padding: 40;
-    width: 50%;
-    height: 33%;
+    location: west;
+    border-radius: 25;
+    padding: 30;
+    width: 30%;
+    height: 100%;
 }
  
 #mainbox {
-    background-color: #ffffffff;
+    background-color: #00000000;
     children: [inputbar, listview];
     spacing: 5px;
     /*margin: 5%;*/
@@ -50,7 +52,7 @@ configuration {
 }
  
 #element selected {
-    background-color: #00a0e6;
+    background-color: #0075d069;
     text-color: #EFEFEF;
 }
  
