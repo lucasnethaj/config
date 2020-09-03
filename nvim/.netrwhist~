@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/lucas/.config/polybar'
+let g:netrw_dirhist_9='/home/lucas/bin'
+let g:netrw_dirhist_8='/home/lucas/.config'
+let g:netrw_dirhist_7='/home/lucas/.config/rofi/themes'
+let g:netrw_dirhist_6='/home/lucas/.config/rofi'
+let g:netrw_dirhist_5='/home/lucas/.config/rofi/scripts'
+let g:netrw_dirhist_4='/home/lucas/.config/rofi'
+let g:netrw_dirhist_3='/home/lucas/.local/lib/python2.7/site-packages/mopidy_gmusic'
 let g:netrw_dirhist_2='/home/lucas/dev/dotfiles/rofi'
 let g:netrw_dirhist_1='/home/lucas/.config/systemd/user'

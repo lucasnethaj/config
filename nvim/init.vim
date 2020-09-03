@@ -9,8 +9,6 @@ set tabstop=3
 set noexpandtab
 set showmatch
 
-colo delek
-
 command WSudo ':w suda://%'
 
 if has("vms")
@@ -45,10 +43,11 @@ else
 endif " has("autocmd")
 
 vnoremap <C-c> "*y :let @+=@*<CR>
-map <C-v> "+p
+map <C-P> "+p
 
 map <C-s> :w<CR>
 map <C-Tab> :tabNext<CR>
+
 
 let g:airline_theme='deus'
 

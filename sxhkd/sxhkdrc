@@ -208,7 +208,7 @@ alt + ctrl + b
     		
 # Use slightly bigger font for ranger
 alt + ctrl + f
-	$TERMINAL ranger
+	$TERMINAL -e ranger
 
 Print
 	scrot
