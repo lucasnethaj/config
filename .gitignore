@@ -1,5 +1,4 @@
 nvim/.netrwhist
-nvim/plugged
+nvim/plugged/*
 ranger/bookmarks
 ranger/history
-

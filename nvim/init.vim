@@ -9,7 +9,6 @@ set tabstop=3
 set noexpandtab
 set showmatch
 
-command WSudo ':w suda://%'
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead

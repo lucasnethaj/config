@@ -13,9 +13,10 @@ alias f='ranger' 						# terminal filemanager
 alias plz='sudo' 						# Ask kindly
 alias suod='sudo' 					# Typos
 
-alias caps='xdotool key Caps_Lock'				#capslock (because it should be disabled by default)
+#capslock (because it should be disabled by default)
+alias caps='xdotool key Caps_Lock'
 
-# reload sh and config files
+#reload sh and config files
 function reload() {
 	source $HOME/.zshrc
 	pkill -USR1 -x sxhkd

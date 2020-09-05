@@ -4,7 +4,7 @@
 #
 # Executed by startx (run your window manager from here)
 
-
+notify-send Login
 userresources=$XDG_CONFIG_HOME/Xresources
 usermodmap=$XDG_CONFIG_HOME/Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
