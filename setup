@@ -1,4 +1,5 @@
 #!/bin/sh
+workDir="${${(%):-%x}:a:h}"
 
 ln -s $HOME/dev/dotfiles/.zshrc $HOME/.zshrc
 ln -s $HOME/dev/dotfiles/.aliases $HOME/
