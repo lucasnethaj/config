@@ -1,3 +1,22 @@
+" PLUGINS
+" To install vim-plug plugin manager for neovim run the following
+" sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+"			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+call plug#begin()
+Plug 'https://github.com/pangloss/vim-javascript.git'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'neomake/neomake'
+Plug 'dense-analysis/ale'
+Plug 'https://github.com/lambdalisue/suda.vim.git'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'dracula/vim',{'as':'dracula'}
+call plug#end()
+
+colorscheme dracula
+let g:airline_theme='dracula'
+
 set number
 set relativenumber
 set autoread
@@ -46,17 +65,3 @@ map <C-P> "+p
 
 map <C-s> :w<CR>
 map <C-Tab> :tabNext<CR>
-
-
-let g:airline_theme='deus'
-
-" PLUGINS
-call plug#begin()
-Plug 'https://github.com/pangloss/vim-javascript.git'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'neomake/neomake'
-Plug 'dense-analysis/ale'
-Plug 'https://github.com/lambdalisue/suda.vim.git'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
