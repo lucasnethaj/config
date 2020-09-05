@@ -6,7 +6,7 @@ xsetroot -cursor_name left_ptr &
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0" &
 xrdb merge .Xresources &
 ## Wallpaper. Nitrogen just draws wallpaper, 
-sh ~/.fehbg &
+sh ~/.config/fehbg &
 ## compositing. Required for shadows, transparency and stuff. 
 # Alter compton settings if using intel graphics
 GRAPHIC_CARD=$(lspci | grep -i "vga" | sed 's/.*://' | sed 's/(.*//' | sed 's/^[ \t]*//')
@@ -42,9 +42,10 @@ update-checker 7200 &
 ## Polkit agent
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 ## Gnome keyring
-gnome-keyring-daemon &
-thunar --daemon &
+#gnome-keyring-daemon &
+#thunar --daemon &
 /usr/lib/mate-notification-daemon/mate-notification-daemon &
 ## Welcome message
 #sleep 1 && notify-send "Welcome to Manjaro-bspwm! " "Press super + F1 to show keybindings" &
 #
+#exec $HOME/.config/login

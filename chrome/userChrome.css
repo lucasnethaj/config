@@ -10,7 +10,11 @@
 @import "findbar/findbar.css";
 
 :root {
+<<<<<<< HEAD
+  --initial-width           : 250px;     /* initial width of the sidebar */
+=======
   --initial-width           : 70px;     /* initial width of the sidebar */
+>>>>>>> master
   --sidebar-width           : 250px;    /* expanded width of the sidebar */
   --toolbar-height          : 0;
   --menubar-height          : -40px;
