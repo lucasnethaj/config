@@ -12,8 +12,9 @@ alias ls='ls --color=auto'										# enable colors for ls
 alias f='ranger' 													# terminal filemanager
 alias plz='sudo' 													# Ask kindly
 alias suod='sudo' 												# Typos
-alias x='startx ~/.xinirtc'									# Start Xorg	
+alias x='startx ~/.xinitrc'									# Start Xorg	
 alias e='$EDITOR'													# Start Xorg	
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 #capslock (because it should be disabled by default)
 alias caps='xdotool key Caps_Lock'

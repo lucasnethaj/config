@@ -98,12 +98,15 @@ export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
 # Print a greeting message when shell is started
-echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
-#pfetch
+# echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
+pfetch
 
 # Plugins Section
 plugins=(
 	git
+	history-substring-search
+	zsh-autosuggestions
+	zsh-interactive-cd
 )
 
 source $ZSH/oh-my-zsh.sh

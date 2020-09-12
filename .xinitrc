@@ -4,7 +4,6 @@
 #
 # Executed by startx (run your window manager from here)
 
-notify-send Login
 userresources=$XDG_CONFIG_HOME/Xresources
 usermodmap=$XDG_CONFIG_HOME/Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -48,7 +47,7 @@ case $session in
 	deepin 			  ) exec dbus-launch --sh-syntax --exit-with-session startdde;;
 	enlightenment 	  ) exec dbus-launch --sh-syntax --exit-with-session enlightenment_start;;
 	gnome 			  ) exec dbus-launch --sh-syntax --exit-with-session gnome-session;;
-	bspwm 			  ) exec dbus-launch --sh-syntax --exit-with-session bspwm-session;;
+	bspwm 			  ) exec bspwm-session;;
     i3|i3wm           ) exec dbus-launch --sh-syntax --exit-with-session i3;;
     lxde 	          ) exec dbus-launch --sh-syntax --exit-with-session startlxde;;
     lxqt         	  ) exec dbus-launch --sh-syntax --exit-with-session lxqt-session;;
