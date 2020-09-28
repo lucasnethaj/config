@@ -19,7 +19,7 @@
 
   option-6-listview-spacing:            10px;
 
-  menu-window-padding:                   15px 15px;
+  menu-window-padding:                   5px 15px;
   menu-inputbar-margin:                  10px 0px;
   menu-prompt-padding:                   10px 20px 10px 20px;
   menu-prompt-margin:                    0px 0px 0px -2px;
@@ -30,9 +30,8 @@
 /* ########### */
 
 #window {
-  width: 100%;
-  height: 100%;
-  location: center;
+  width: 29%;
+  height: 20%;
 }
 
 /* ########### */
@@ -52,7 +51,6 @@
 #element {
   padding: @option-element-padding;
   background-color: @background-light;
-
 }
 #element.selected {
   background-color: @accent;
@@ -66,7 +64,7 @@
 }
 #window {
   padding: @menu-window-padding;
-  children: [ horibox ];
+  children: [ inputbar, horibox ];
 }
 #inputbar {
   children: [ textbox-prompt-colon, prompt ];

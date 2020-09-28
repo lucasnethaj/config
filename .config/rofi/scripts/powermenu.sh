@@ -27,7 +27,7 @@ case $chosen in
         systemctl reboot
         ;;
     $lock)
-        i3lock -c 000000
+        i3lock
         ;;
     $suspend)
         mpc -q pause
@@ -35,7 +35,7 @@ case $chosen in
         systemctl suspend
         ;;
     $logout)
-	bspwm quit
+        openbox --exit
         ;;
 esac
 
