@@ -1,4 +1,4 @@
-nvim/.netrwhist
-nvim/plugged/*
-ranger/bookmarks
-ranger/history
+.config/nvim/.netrwhist
+.config/nvim/plugged/*
+.config/ranger/bookmarks
+.config/ranger/history
