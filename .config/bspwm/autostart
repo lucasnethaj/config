@@ -21,7 +21,8 @@ xset +fp /usr/share/fonts/local &
 xset +fp /usr/share/fonts/misc &
 xset +fp ~/.fonts &
 xset fp rehash &
-fc-cache -fv &
+#update font cache
+#fc-cache -fv &
 ## Automount removable media
 devmon &
 ## powersaving options
@@ -32,7 +33,7 @@ xset c on &
 xset -dpms &
 xbacklight -set 15 &
 ## Run screenlock when suspending
-light-locker &
+#light-locker &
 ## Make monitor settings persist between reboots
 eval $(awk -F'=' '/Exec=/ {print $2}' ~/.config/autostart/lxrandr-autostart.desktop) &
 ## Notify about package updates
@@ -42,8 +43,8 @@ eval $(awk -F'=' '/Exec=/ {print $2}' ~/.config/autostart/lxrandr-autostart.desk
 ## Polkit agent
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 ## Gnome keyring
-#gnome-keyring-daemon &
-#thunar --daemon &
+gnome-keyring-daemon &
+thunar --daemon &
 #/usr/lib/mate-notification-daemon/mate-notification-daemon &
 ## Welcome message
 #sleep 1 && notify-send "Welcome to Manjaro-bspwm! " "Press super + F1 to show keybindings" &

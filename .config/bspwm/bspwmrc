@@ -35,7 +35,7 @@ bspc config focus_follows_pointer true
 #bspc config pointer_follows_focus true #Some keybindings automatically enable and disable this setting
 
 #Settings for manual splitting
-bspc config split_ratio         0.52
+bspc config split_ratio         0.6
 
 #bspc monitor -d i ii iii iv v vi vii viii ix x
 #bspc monitor -d One Two Three Four Five Six Seven Eight Nine Ten
@@ -56,6 +56,7 @@ bspc rule -a viewnior state=floating center=true
 bspc rule -a file-roller state=floating center=true
 bspc rule -a floaterm state=floating center=true
 bspc rule -a spotify state=pseudo_tiled
+bspc rule -a emacs state=tiled
 #bspc rule -a nautilus state=pseudo_tiled
 #bspc rule -a skype state=pseudo_tiled
 bspc rule -a file-roller state=pseudo_tiled
@@ -70,7 +71,7 @@ bspc rule -a dockbarx layer=above
 bspc rule -a google-chrome-unstable private=on
 bspc rule -a google-chrome-stable private=on
 bspc rule -a chromium private=on
-bspc rule -a firefox private=on
+bspc rule -a firefox private=on monitor=HDMI-0
 bspc rule -a midori private=on
 bspc rule -a gnome-pie border=off manage=off
 bspc rule -a wpa_gui state=pseudo_tiled
@@ -83,6 +84,7 @@ bspc rule -a '*:soffice' state=tiled
 #bspc rule -a deluge desktop=III
 bspc rule -a 9menu border=off manage=off
 bspc rule -a tint2 border=off manage=off
+bspc rule -a hl2_linux monitor=HDMI-0 state=fullscreen
 #bspc desktop I --layout monocle
 #bspc desktop II --layout monocle
 
@@ -112,7 +114,6 @@ bspc config external_rules_command /usr/bin/pseudo_automatic_mode
 #limepanel &
 polybar default &
 polybar secondary &
-bsp-layout set tall &
 desknamer.sh &
 
 # Alter compton settings if using intel graphics

@@ -1,24 +1,3 @@
-rename Domnik Fike - SYNDROME
-rename Dominic Fike - 1.opus
-rename Dominic Fike - Falling Asleep.opus
-rename Dominic Fike - PIMPIN' ft. SLYTE.opus
-search luc
-search home
-search x
-search MUS
-search musi
-search 
-search img
-colo desert
-search fire
-search hj
-open_with nvim
-search ca
-search scre
-search 10
-shell cp ove3.js ove4.js
-mkdir general.js
-shell nvim general.js
 search bin
 search work
 search Work
@@ -40,11 +19,32 @@ search .loc
 search his
 search finder
 search rofi
-delete
 search tmu
 search vim
 search .oh
 search zsh
 search node
-cd .config/
 search .cf
+tab_move q
+m
+rename sketch8.js
+search gtk
+cd .cache/
+cd 
+search duns
+search qt
+search .pam_
+cd .config/
+search Pic
+search pu
+search des
+search de
+search .con
+search itc
+delete
+cd .local/src/rofi/
+cd .local/share/fonts/
+rename config1.rasi
+rename config.rasi.adi9010x
+rename config.rasi
+search ini
