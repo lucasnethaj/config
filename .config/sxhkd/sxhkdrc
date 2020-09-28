@@ -9,11 +9,11 @@ alt + shift + q
 # ______________
 
 # Close window
-alt + x
+super + x
 	bspc  node -c
 
 # Kill window
-alt + shift + x
+super + shift + x
 	bspc  node -k
 
 # Toggle tiling mode of window
@@ -56,9 +56,11 @@ super + Return
     windowpromoter
 
 # go (Shift=move) to desktop (and focus the monitor that the desktop is located on. Bspwm style)
-super + {_,shift + }{1-9,0}
-    bspc {desktop -f,node -d} ^{1-9,10}
+super + {_,shift + }{1-5}
+    bspc {desktop -f,node -d} ^{1-5}
 
+alt + {_,shift + }{1-5}
+    bspc {desktop -f,node -d} ^{6-9,10}
 
 # Select previous / next desktop
 ctrl + super + {m,n}
@@ -66,7 +68,7 @@ ctrl + super + {m,n}
 
 # Select layout
 super + m
-	bsp-layout set {tall,wide}
+	bsp-layout {set tall,set wide, remove}
 
 # cycle windows
 alt + {_,shift + }Tab
@@ -74,6 +76,9 @@ alt + {_,shift + }Tab
 	
 #Focus windows by direction, works with multihead
 super +  {h,j,k,l}
+    focusmover {west,south,north,east}
+
+super +  {a, s, w, d}
     focusmover {west,south,north,east}
         	
 # Move tiled windows. Moving a tiled window to 
@@ -83,6 +88,8 @@ super +  {h,j,k,l}
 super + shift + {h,j,k,l}
 	windowgrabber {west,south,north,east}
 	
+super + shift + {a, s, w, d}
+	windowgrabber {west,south,north,east}
 
 #resize windows
 
@@ -209,13 +216,26 @@ alt + f
 
 alt + ctrl + b
 	$BROWSER
+
+alt + ctrl + e
+	emacs
     		
 # Use slightly bigger font for ranger
 alt + ctrl + f
 	$TERMINAL -e ranger
 
-Print
-	scrot
+alt + shift + f
+	thunar
+
+Print 
+	sleep 0.2 ; scrot --select -f -l style=solid,width=1 -e 'mv $f ~/Pictures/screenshots' | xclip
+
+#
+# Edit config files
+#
+
+alt + ctrl + c; b
+	$TERMINAL -e $EDITOR ~/.config/bspwm/bspwmrc
 
 #
 # Media keys
@@ -259,7 +279,7 @@ ctrl + alt + o
 
 # power menu
 ctrl + alt + p
-		  exec ~/.config/rofi/scripts/powermenu.sh
+		  exec ~/.config/rofi/power/powermenu.sh
 # make sxhkd reload its configuration files:
 super + shift + Escape
 	pkill -USR1 -x sxhkd && notify-send reload
