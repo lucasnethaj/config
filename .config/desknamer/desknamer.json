@@ -6,7 +6,8 @@
 		"vlc": "vlc",
 		"weechat": "Chat",
 		"discord": "discord",
-		"urxvt": "TerminalEmulator"
+		"urxvt": "TerminalEmulator",
+		"dropdown": "dropdown"
 	},
 	"categories": {
 		"default": ["", 0],

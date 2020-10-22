@@ -1,4 +1,13 @@
 #! /bin/sh
+#  ____  ___  ____  _    _  __  __  ____   ___ 
+# (  _ \/ __)(  _ \( \/\/ )(  \/  )(  _ \ / __)
+#  ) _ <\__ \ )___/ )    (  )    (  )   /( (__ 
+# (____/(___/(__)  (__/\__)(_/\/\_)(_)\_) \___)
+#
+# ASCII Art: http://www.patorjk.com/software/taag/#p=display&f=Bulbhead&t=BSPWMRC
+#
+
+# Constants
 gap=5
 PANEL_HEIGHT=0
 export gap
@@ -37,84 +46,45 @@ bspc config focus_follows_pointer true
 #Settings for manual splitting
 bspc config split_ratio         0.6
 
-#bspc monitor -d i ii iii iv v vi vii viii ix x
-#bspc monitor -d One Two Three Four Five Six Seven Eight Nine Ten
-#bspc monitor -d I II III IV V VI VII VIII IX X
-#bspc monitor -d • • • • • • • • • •
-#bspc monitor -d I II III IV V VI
-
-###This creates and names desktops for multiple monitors.
+###This automatically creates and names desktops for multiple monitors.
 workspaces_multimonitor &
 
-bspc rule -a screenkey --unmanage
-bspc rule -a gcolor2 state=floating center=true
-bspc rule -a lxappearance state=floating center=true
-bspc rule -a gmrun state=floating center=true
-bspc rule -a lxterminal state=floating center=true sticky=true
-#bspc rule -a urxvt state=floating center=true
 bspc rule -a viewnior state=floating center=true
 bspc rule -a file-roller state=floating center=true
 bspc rule -a floaterm state=floating center=true
 bspc rule -a spotify state=pseudo_tiled
-bspc rule -a emacs state=tiled
-#bspc rule -a nautilus state=pseudo_tiled
-#bspc rule -a skype state=pseudo_tiled
+bspc rule -a Emacs state=tiled
+bspc rule -a Steam monitor=DVI-I-1 desktop=!occupied
 bspc rule -a file-roller state=pseudo_tiled
 bspc rule -a transmission-gtk state=pseudo_tiled
-bspc rule -a conky sticky=on manage=off lower=on
-bspc rule -a astime sticky=on
-bspc rule -a yad state=floating
 bspc rule -a Docky layer=above border=off manage=on
-bspc rule -a Plank layer=above border=off manage=on
-bspc rule -a wbar layer=above
-bspc rule -a dockbarx layer=above
-bspc rule -a google-chrome-unstable private=on
-bspc rule -a google-chrome-stable private=on
-bspc rule -a chromium private=on
 bspc rule -a firefox private=on monitor=HDMI-0
-bspc rule -a midori private=on
-bspc rule -a gnome-pie border=off manage=off
-bspc rule -a wpa_gui state=pseudo_tiled
 bspc rule -a libreoffice state=tiled
 bspc rule -a '*:libreofficedev' state=tiled
 bspc rule -a '*:soffice' state=tiled
-#bspc rule -a firefox desktop=I
-#bspc rule -a calibre desktop=II
-#bspc rule -a geany desktop=II
-#bspc rule -a deluge desktop=III
-bspc rule -a 9menu border=off manage=off
-bspc rule -a tint2 border=off manage=off
 bspc rule -a hl2_linux monitor=HDMI-0 state=fullscreen
-#bspc desktop I --layout monocle
-#bspc desktop II --layout monocle
+bspc rule -a '*:*:YAD' state=floating
+bspc rule -a '*:*:Drill' state=floating
 
+# Scratchpad
+bspc rule -a scratchpad sticky=on state=floating hidden=on
+# check scratchpad already running
+[ "$(ps -x | grep -c 'scratchpad')" -eq "1" ] && st -c scratchpad -e ~/.local/bin/scratch &
 
-##  Autogap adjusts windowgap automatically according to the number of
-##  windows on the desktop. Using it disables negative window gap.
-#autogap &
+bspc rule -a dropdown monitor=HDMI-0 sticky=on state=floating hidden=on
+run_once termite --class dropdown -e "zsh -i" &
 
-##  This script balances all windows when new one is spawned 
-#euclid_balancer &
-
-##Edge-switcher switches to next workspace when moves moves to the 
-##edge of the monitor (behavior similar to enlightenment)
-#edge-switcher &
-
-###External rules
-##Pseudo automatic mode: always splits focused window when opening new window
-bspc config external_rules_command /usr/bin/pseudo_automatic_mode
-##Adjust new window: splits biggest windows to keep windows about the same size
-#bspc config external_rules_command /usr/bin/adjust-new-window
+# Maps wacom taplet to main monitor
+xinput map-to-output 19 HDMI1 
 
 ##Autostart apps
 #Keybindings daemon
 #sxhkd &
 #Source autostartfile. Uncomment this if you use bspwm-git
 #. $HOME/.config/bspwm/autostart
-#limepanel &
 polybar default &
 polybar secondary &
-desknamer.sh &
+run_once desknamer.sh &
 
 # Alter compton settings if using intel graphics
 GRAPHIC_CARD=$(lspci | grep -i "vga" | sed 's/.*://' | sed 's/(.*//' | sed 's/^[ \t]*//')

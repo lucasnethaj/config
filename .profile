@@ -26,12 +26,8 @@ source $HOME/.aliases
 export SSH="$XDG_CONFIG_HOME/ssh"
 
 # Load profiles from /etc/profile.d
-if test -d /etc/profile.d/; then
-	for profile in /etc/profile.d/*.sh; do
-		test -r "$profile" && . "$profile"
-	done
-	unset profile
-fi
+#Source /etc/profile directly instead which does the same
+source /etc/profile
 
 # Source global bash config
 #if test "$PS1" && test "$BASH" && test -r /etc/bash.bashrc; then

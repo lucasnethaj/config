@@ -18,6 +18,8 @@ Plug 'dracula/vim',{'as':'dracula'}
 Plug 'mhinz/vim-startify'
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
+Plug 'segeljakt/vim-stealth'
+Plug 'tpope/vim-commentary'
 call plug#end()
 " }}}
 
