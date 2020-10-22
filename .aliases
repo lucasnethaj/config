@@ -16,6 +16,7 @@ alias x='startx ~/.xinitrc'									# Start Xorg
 alias e='$EDITOR'													# Start Xorg	
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias pluto='julia -L ~/.julia/juliaPluto'
+alias dropdown='termite --class dropdown -e "zsh -i" &'
 
 #capslock (because it should be disabled by default)
 alias caps='xdotool key Caps_Lock'

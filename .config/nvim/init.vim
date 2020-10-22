@@ -1,20 +1,29 @@
-" PLUGINS
+" Plugins: {{{
 " To install vim-plug plugin manager for neovim run the following
 " sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
 "			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+"			Plugins are installed from remote git repository. Names without a url
+"			are just installed from https://github.com/*/*.git
 
 call plug#begin()
-Plug 'https://github.com/pangloss/vim-javascript.git'
+Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'neomake/neomake'
 Plug 'dense-analysis/ale'
-Plug 'https://github.com/lambdalisue/suda.vim.git'
+Plug 'lambdalisue/suda.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim',{'as':'dracula'}
+Plug 'mhinz/vim-startify'
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/FuzzyFinder'
+Plug 'segeljakt/vim-stealth'
+Plug 'tpope/vim-commentary'
 call plug#end()
+" }}}
 
-" Plugin Configuration
+" Plugin Configuration: {{{
 colorscheme dracula
 let g:airline_theme='dracula'
 
@@ -25,7 +34,13 @@ let g:ale_fixers = {
   \   ],
   \}
 
-" Configuration
+let g:ale_completion_enabled = 1
+let g:vcoolor_disable_mappings = 1
+let g:vcoolor_map = '<S-M-c>'
+let g:vcoolor_custom_picker = 'zenity --title "VimColor" --color-selection --color '
+"	}}}
+
+" Options: {{{
 set number
 set relativenumber
 set autoread
@@ -36,6 +51,7 @@ set shiftwidth=3
 set tabstop=3
 set noexpandtab
 set showmatch
+let mapleader = (" ")
 
 
 if has("vms")
@@ -68,9 +84,29 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
+" }}}
 
+" Maps: {{{
 vnoremap <C-c> "*y :let @+=@*<CR>
 map <C-P> "+p
 
-map <C-s> :w<CR>
-map <C-Tab> :tabNext<CR>
+map <C-s> :write<CR>
+map <F1> :NERDTreeToggle<CR>
+map <leader>bf :FufBuffer<CR>
+map <leader>bh :Startify<CR>
+map <leader>ff :FufFile<CR>
+map <leader>fd :FufDir<CR>
+
+map <leader>wn :tabnew<CR>
+map <S-Tab> :tabNext<CR>
+map <leader>ws :split<CR>
+map <leader>wv :vsplit<CR>
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+
+" }}}
+" vim: fdm=marker ts=2 sts=2 sw=2 fdl=0:

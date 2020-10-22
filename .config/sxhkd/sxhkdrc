@@ -1,13 +1,26 @@
-﻿# bspwm hotkeys
-#
+﻿# 
+#  (       )    )     ) (     (          
+#  )\ ) ( /( ( /(  ( /( )\ )  )\ )  (    
+# (()/( )\()))\()) )\()|()/( (()/(  )\   
+#  /(_)|(_)\((_)\|((_)\ /(_)) /(_)|((_)  
+# (_)) __((_)_((_)_ ((_|_))_ (_)) )\___  
+# / __|\ \/ / || | |/ / |   \| _ ((/ __| 
+# \__ \ >  <| __ | ' <  | |) |   /| (__  
+# |___//_/\_\_||_|_|\_\ |___/|_|_\ \___| 
+#                                        
+# ASCII Art http://www.patorjk.com/software/taag/#p=display&f=Fire%20Font-s&t=SXHKDRC
+
 # Cleanly quit bspwm
 alt + shift + q
-	bspc quit && pkill lemonpanel && pkill lemonbar
+	bspc quit 
 
+# ______________
 #
 # Window manipulation
 # ______________
+#
 
+#/---------------\
 # Close window
 super + x
 	bspc  node -c
@@ -15,13 +28,14 @@ super + x
 # Kill window
 super + shift + x
 	bspc  node -k
+#\---------------/
 
+#/---------------\
 # Toggle tiling mode of window
 super + shift + t
 	bspc node -t {pseudo_tiled,tiled}
 super + t
-	{bspc node -t floating && window-placer $(bspc query -T -d | grep -o '"state":"floating"' | wc -l),bspc node -t tiled}
-	
+	{bspc node -t floating && window-placer $(bspc query -T -d | grep -o '"state":"floating"' | wc -l),bspc node -t tiled}	
 
 # Try to keep size and position of the selected window
 super + o
@@ -30,12 +44,16 @@ super + o
 # Make window sticky
 super + i
 	bspc node -g sticky
+#\---------------/
 
 
+# ______________
 #
 # Window moving and splitting
 # ______________    
+#
 
+#/---------------\
 # Autopresel (split window in its largest dimension)
 ctrl + space
 	auto-presel
@@ -46,11 +64,12 @@ ctrl + space
 alt + ctrl + {h,j,k,l}
 	bspc node -p \~{west,south,north,east}
 
-
 # Set splitting ratio of windows
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
+#\---------------/
 		
+#/---------------\
 # Move current window to largest space or preselected area if there is one.
 super + Return
     windowpromoter
@@ -66,10 +85,6 @@ alt + {_,shift + }{1-5}
 ctrl + super + {m,n}
 	bspc desktop -f {prev.occupied,next.occupied} 
 
-# Select layout
-super + m
-	bsp-layout {set tall,set wide, remove}
-
 # cycle windows
 alt + {_,shift + }Tab
     bspc node -f {next,prev}
@@ -80,11 +95,12 @@ super +  {h,j,k,l}
 
 super +  {a, s, w, d}
     focusmover {west,south,north,east}
-        	
-# Move tiled windows. Moving a tiled window to 
-# preselected one moves into preselection instead. 
-# Moving out of the screen should move the window to next monitor if possible
 
+#\---------------/
+
+#/---------------\
+# Move tiled windows. 
+# Moving a tiled window to preselected one moves into preselection instead. 
 super + shift + {h,j,k,l}
 	windowgrabber {west,south,north,east}
 	
@@ -92,14 +108,15 @@ super + shift + {a, s, w, d}
 	windowgrabber {west,south,north,east}
 
 #resize windows
-
 super + ctrl + {h,j,k,l}
 	bspwm_resize.sh {west,south,north,east}
-	
+#\---------------/
 
+# ______________    
 #
 # Layout manipulation/desktop level controls
 # ______________    
+#
 
 # Toggle monocle mode
 super + shift + space 
@@ -121,10 +138,6 @@ super + alt + b
 shift + super + b
 	bspc node @/ -E
 
-# Toggle automatic balancing of windows
-#alt + b
-#	euclid_balancer
-
 # Mirror and flip leaves of tree
 super + {comma,period}
 	bspc node @/ -F {horizontal,vertical}
@@ -133,105 +146,95 @@ super + {comma,period}
 super + shift + {comma,period}
 	bspc node @/ -R {90,270}
 
-# Change window gap
+# Select layout
+super + m
+	bsp-layout {set tall,set wide, remove}
 
+# Change window gap
 alt + g
 	bspc config -d focused window_gap {$gap,$(($gap+$gap)),$(($gap+$gap+$gap))}
 
-super + button{4,5}
-	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
-#
-# mouse bindings
-# __________________
+# super + button{4,5}
+	# bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
 
-~button1
-	DidIClickDesktop.sh && gapgrab	
+# Scratchpad
+ctrl + alt + s
+	id=$(cat /tmp/scratchid);\
+	bspc node $id --flag hidden;bspc node -f $id
 
-~button2
-	DidIClickDesktop.sh && mygtkmenui -- .config/GTKmenu/BspwmDesktopMenui
-#DidIClickDesktop.sh && mygtkmenui -- .config/GTKmenu/BspwmWindowMenui
-		
-~button3
-	DidIClickDesktop.sh && mygtkmenui -- .config/GTKmenu/LaunchMenu
+ctrl + alt + d
+    dropdown.sh dropdown
 
-# Switch workspace by scrolling on the desktop. Causes scrolling issues on some systems.
-#~button4
-#	DidIClickDesktop.sh && bspc desktop -f next
-#~button5
-#	DidIClickDesktop.sh && bspc desktop -f prev
-	
-### Add or remove desktops by scrolling
-alt + ctrl + button5
-    bspcp dsktp rm
+#alt + s
+		  #bspwm-toogle-visibillity xterm xterm --take-first
 
-alt + ctrl + button4
-    bspcp dsktp add
-
-# Spawn applications popup menu and manually tile selected 
-# app where your mouse was when you opened the menu. Smartsplit only chooses
-# biggest dimension of the window, MouseLaunch only cares which edge is closer.
-# mod5 is alt_gr (first key right from space) on most keyboards. 
-mod5 + @button1
-    MouseLaunch ; mygtkmenui -- .config/GTKmenu/LaunchMenu
-#	smartsplit ; dboxmenu
-
-# Spawn window manipulation menu
-# Mod1 is alt
-#    BspwmWindowMenu
-mod1 + @button1
-    mygtkmenui -- .config/GTKmenu/BspwmWindowMenui
-
-
-#
-# Touchpad "gestures" (depend on your touchpad driver, very likely to be unavailable)
-#_____________________
-    
+# ______________    
 #
 # spawn programs
+# ______________    
 #
 
-# run applications
-#alt + space 
-#	dmenu_recent -fn 'xos4 Terminus:size=15' -i -l 14 -w 600 -y $PANEL_HEIGHT
-
+# Application launcher
 alt + d
 	rofi -show drun
 
 #Window Switcher
-
 super + Tab
 	rofi -show window
 
-#alt + p
-#	dmenu_recent -h $PANEL_HEIGHT -fn 'xos4 Terminus:size=15' -i
+# Clipboard menu
+alt + c
+  CM_LAUNCHER=rofi clipmenu
 
+# Univode Picker
+alt + u
+	unipicker --comand "rofi -dmenu"
+
+# File search
+alt + f
+	drill-search-gtk
+
+# power menu
+ctrl + alt + p
+		  exec ~/.config/rofi/power/powermenu.sh
+
+alt + p
+	passmenu
+
+# Start Terminal
 alt + ctrl + Return
 	$TERMINAL
 
 alt + ctrl + t
 	$TERMINAL
 
-alt + f
-	rofi-finder.sh
-
+# Start Web Browser
 alt + ctrl + b
 	$BROWSER
 
 alt + ctrl + e
 	emacs
-    		
-# Use slightly bigger font for ranger
+
+# Start Terminal file browser
 alt + ctrl + f
 	$TERMINAL -e ranger
 
+# Start GUI file browser
 alt + shift + f
 	thunar
 
+# Take square select screenshot
 Print 
 	sleep 0.2 ; scrot --select -f -l style=solid,width=1 -e 'mv $f ~/Pictures/screenshots' | xclip
 
+# Open color selection dialog and copy to primary selevtion
+shift + alt + c
+	yad --color | xclip
+
+# ______________    
 #
 # Edit config files
+# ______________    
 #
 
 alt + ctrl + c; b
@@ -273,13 +276,7 @@ ctrl + alt + {n,comma}
 ctrl + alt + o
 		  i3lock -c 000000
 
-# Scratchpad
-#alt + s
-		  #bspwm-toogle-visibillity xterm xterm --take-first
 
-# power menu
-ctrl + alt + p
-		  exec ~/.config/rofi/power/powermenu.sh
 # make sxhkd reload its configuration files:
 super + shift + Escape
 	pkill -USR1 -x sxhkd && notify-send reload
