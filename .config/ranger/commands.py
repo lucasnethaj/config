@@ -101,3 +101,15 @@ class compress(Command):
 
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
         return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
+
+class setwallpaper(Command):
+    def execute(self):
+        """ Set selected picture as the wallpaper """
+        cwd = self.fm.thisdir
+        marked_files = tuple(cwd.get_selection())
+        command = ['feh --bg-center']
+
+        if not marked_files:
+            return
+
+        os.system(command[0], marked_files[0])

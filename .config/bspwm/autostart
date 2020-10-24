@@ -6,7 +6,7 @@ xsetroot -cursor_name left_ptr &
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0" &
 xrdb merge .Xresources &
 ## Wallpaper. Nitrogen just draws wallpaper, 
-sh ~/.config/fehbg &
+wallpaper &
 ## compositing. Required for shadows, transparency and stuff. 
 # Alter compton settings if using intel graphics
 GRAPHIC_CARD=$(lspci | grep -i "vga" | sed 's/.*://' | sed 's/(.*//' | sed 's/^[ \t]*//')
@@ -50,3 +50,4 @@ thunar --daemon &
 #sleep 1 && notify-send "Welcome to Manjaro-bspwm! " "Press super + F1 to show keybindings" &
 #
 #exec $HOME/.config/login
+#transmission-gtk &
