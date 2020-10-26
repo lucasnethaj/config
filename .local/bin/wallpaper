@@ -1,0 +1,9 @@
+#!/bin/bash
+#Set at random wallpaper from ~/Pictures/wallpapers
+
+r=$RANDOM
+max=$(ls -l ~/Pictures/wallpapers | wc -l)
+let "r %= max"
+sel=$(find ~/Pictures/wallpapers | sed "${r}q;d")
+
+feh --bg-fill "${sel}"
