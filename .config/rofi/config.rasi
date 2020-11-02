@@ -3,10 +3,11 @@ configuration {
     display-window:                 "Window";
     show-icons:true;
 	 icon-theme:							"Papirus";
+	 modi:									"window,ssh,drun";
 }
  
 * {
-    lines: 15;
+    lines: 7;
     columns: 1;
     background-color: #00000065;
     border-color: #00000000;
@@ -16,17 +17,18 @@ configuration {
  
 #window {
     border: 0;
-    location: west;
+    location: center;
     border-radius: 25;
     padding: 30;
-    width: 30%;
-    height: 100%;
+    width: 40%;
+    height: 50%;
+	 y-offset: -100;
 }
  
 #mainbox {
     background-color: #00000000;
     children: [inputbar, listview];
-    spacing: 5px;
+    spacing: 3px;
     /*margin: 5%;*/
     padding: 1px 0;
     border: 1px;

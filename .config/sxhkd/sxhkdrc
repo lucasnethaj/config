@@ -199,7 +199,7 @@ ctrl + alt + p
 		  exec ~/.config/rofi/power/powermenu.sh
 
 alt + p
-	passmenu
+	rofi-pass
 
 # Start Terminal
 alt + ctrl + Return
@@ -271,6 +271,16 @@ ctrl + alt + m
 				
 ctrl + alt + {n,comma}								
 				pactl set-sink-volume @DEFAULT_SINK@ {-5%,+5%} 
+
+super + Scroll_Lock
+				pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+super + {Next,Prior}								
+				pactl set-sink-volume @DEFAULT_SINK@ {-5%,+5%} 
+
+# Media Control
+super + {Pause,Home,End} 
+	playerctl -a {play-pause, previous, next}
 
 # Lock
 ctrl + alt + o

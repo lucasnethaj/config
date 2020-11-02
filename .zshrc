@@ -107,6 +107,7 @@ plugins=(
 	history-substring-search
 	zsh-autosuggestions
 	zsh-interactive-cd
+	golang
 )
 
 source $ZSH/oh-my-zsh.sh
