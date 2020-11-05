@@ -65,6 +65,7 @@ bspc rule -a '*:soffice' state=tiled
 bspc rule -a hl2_linux monitor=HDMI-0 state=fullscreen
 bspc rule -a '*:*:YAD' state=floating
 bspc rule -a '*:*:Drill' state=floating
+bspc rule -a '*:*:Save Document?' state=floating
 
 # Scratchpad
 bspc rule -a scratchpad sticky=on state=floating hidden=on

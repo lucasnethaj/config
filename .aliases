@@ -21,14 +21,6 @@ alias dropdown='termite --class dropdown -e "zsh -i" &'
 #capslock (because it should be disabled by default)
 alias caps='xdotool key Caps_Lock'
 
-#reload sh and config files
-function reload() {
-	source $HOME/.zshrc
-	pkill -USR1 -x sxhkd
-}
-
-# Start a nested xsession
-function xnest() {
-Xephyr -br -ac -noreset -screen 800x600 :1 &
-#DISPLAY=:1 bspwm
-}
+alias zshreload='source $HOME/.zshrc'
+## Start a nested xsession
+alias xnest='Xephyr -br -ac -noreset -screen 800x600 :1'

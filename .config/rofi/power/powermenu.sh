@@ -12,7 +12,7 @@
 # row     row_alt     row_circle
 # single     single_circle     single_full     single_full_circle     single_rounded     single_text
 
-style="styles/berry"
+style="config"
 
 rofi_command="rofi -theme power/$style.rasi"
 
@@ -52,7 +52,7 @@ case $chosen in
         fi
         ;;
     $lock)
-		i3lock -i /home/lucas/Pictures/background/LouisaLucas.png -c 000000  
+        i3lock -c 000000
         ;;
     $suspend)
 		ans=$($dir/confirm.sh)

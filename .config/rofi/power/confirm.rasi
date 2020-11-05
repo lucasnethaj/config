@@ -1,20 +1,23 @@
 @import "styles/colors.rasi"
 
 * {
-    background-color:       @background;
-    text-color:             @foreground;
-	font:				 	"FantasqueSansMono Nerd Font 14";
+    lines: 15;
+    columns: 1;
+    background-color: #00000065;
+    border-color: #00000000;
+    text-color: #EFEFEF;
+    font: "SF Pro Text 16";
 }
 
 window {
     width:      			280px;
     padding:    			30px;
     border:					1px;
-    border-radius:          0px;
-    border-color:           @border;
+    border-radius:          25;
     location:               center;
     x-offset:               0;
-    y-offset:               -8%;
+    y-offset:               -14%;
+	 height: 				100px;
 }
 
 entry {

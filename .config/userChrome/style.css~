@@ -1,0 +1,37 @@
+/*
+Dette er et stylesheet af typen cascading style sheet (css). 
+Det er her, man kan style sit HTML-dokument, hvis man har husket at linke korrekt til det.
+*/
+
+/* 
+    Created on : 06-01-2017, 13:00:31
+    Author     : Helena
+*/
+
+/* Dette er en kommentar i CSS */
+
+
+/*  h1 refererer til <h1>-elementet i HTML-dokumentet. "Tuborg-klammerne" {} skal stå som de gør for at indramme koden. 
+Color angiver, at elementet skal have en farve og koden efter kolon angiver farvekoden her #ff3333 - HUSK semikolon; 
+- du kan finde farvekoder online fx her: https://www.w3schools.com/colors/colors_picker.asp */
+
+h1 {color:activeborder; }
+/*  h2 refererer til <h1>-elementet i HTML-dokumentet color fortæller, at det skal have en farve og koden efter kolon
+angiver farvekoden her darkgreen */
+h2 {color: #0033ff; }
+
+/* Background-image angiver stien til et baggrundsbillede - baggrundsbilledet er gennemsigigt og derfor vises også baggrundsfarven */
+body {
+    background-image: url("baggrund.png");
+}
+/* Background-color angiver baggrundsfarven som her er blå */
+body {
+    background-color: white;
+}
+
+
+/* a refererer til links i et HTML-dokument. Det, der står efter kolon siger, hvornår stylingen gælder fx active */
+a:active { color: #996600;}
+/* a:hover er når man lader musen køre over et link - her vil baggrundsfarven skifte til #9966ff */
+a:hover { 
+    background-color: #9966ff; }
