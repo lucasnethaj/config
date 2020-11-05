@@ -13,12 +13,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'mhinz/vim-startify'
-Plug 'vim-scripts/L9'
+Plug 'vim-scripts/L9' "Dependency of Fzf
 Plug 'vim-scripts/FuzzyFinder'
-Plug 'segeljakt/vim-stealth'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
-Plug 'liuchengxu/vim-which-key'
+" Plug 'francoiscabrol/ranger.vim'
+" Plug 'rbgrouleff/bclose.vim' " Dependency of ranger,vim
 call plug#end()
 " }}}
 
@@ -26,6 +26,8 @@ call plug#end()
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 let g:airline_theme='dracula'
+
+let g:ranger_map_keys = 0
 
 "	}}}
 
@@ -50,6 +52,8 @@ set hidden
 
 " Maps: {{{
 let mapleader = (" ")
+" Exit terminal mode with ESC
+tnoremap <Esc> <C-\><C-n>
 
 vnoremap <C-c> "*y :let @+=@*<CR>
 map <C-P> "+p
@@ -59,6 +63,7 @@ map <F1> :NERDTreeToggle<CR>
 map <leader>bf :FufBuffer<CR>
 map <leader>bh :Startify<CR>
 map <leader>ff :FufFile<CR>
+map <leader>fb :Ranger<CR>
 map <leader>fd :FufDir<CR>
 
 map <leader>wn :tabnew<CR>
