@@ -65,6 +65,9 @@ set nobackup
 set undofile
 set incsearch
 set hidden
+
+" Higlight trailing whitespace
+:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 " }}}
 
 " Maps: {{{

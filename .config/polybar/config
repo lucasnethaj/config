@@ -42,7 +42,7 @@ background = #00000000
 modules-center = xwindow
 
 [bar/default]
-monitor = ${env:MONITOR:LVDS-1}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 28
 ;offset-x = 2.5%
@@ -152,7 +152,7 @@ content-foreground = ${colors.module-background}
 type = internal/xwindow
 label = %title:0:120:...%
 
-format-background = #00000000
+format-background = ${colors.module-background}
 format-underline = ff0000
 
 [module/backlight]
