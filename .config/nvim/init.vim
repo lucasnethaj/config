@@ -6,28 +6,30 @@
 "			are just installed from https://github.com/*/*.git
 
 call plug#begin()
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'ap/vim-css-color'
+" Syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
+" Utils
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'dracula/vim',{'as':'dracula'}
-Plug 'mhinz/vim-startify'
 Plug 'vim-scripts/L9' "Dependency of Fzf
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
-" Plug 'francoiscabrol/ranger.vim'
-" Plug 'rbgrouleff/bclose.vim' " Dependency of ranger,vim
+" Sugar
+Plug 'mhinz/vim-startify'
+Plug 'ap/vim-css-color'
+Plug 'dracula/vim',{'as':'dracula'}
+Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
 call plug#end()
 " }}}
 
 " Plugin Configuration: {{{
-colorscheme dracula
+colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
-let g:airline_theme='dracula'
+" let g:airline_theme='dracula'
 
 let g:ranger_map_keys = 0
 
@@ -67,7 +69,7 @@ set incsearch
 set hidden
 
 " Higlight trailing whitespace
-:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 " }}}
 
 " Maps: {{{
