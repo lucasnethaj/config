@@ -18,6 +18,7 @@ Plug 'vim-scripts/L9' "Dependency of Fzf
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
+Plug 'dhruvasagar/vim-table-mode'
 " Sugar
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
@@ -61,8 +62,11 @@ let g:instant_markdown_mathjax = 1
 "let g:instant_markdown_autoscroll = 0
 "let g:instant_markdown_port = 8888
 "let g:instant_markdown_python = 1
+let g:instant_markdown_browser = "qutebrowser"
 
-"	}}}
+let g:table_mode_corner='|'
+
+"}}}
 
 " Sets: {{{
 set number
@@ -82,8 +86,20 @@ set undofile
 set incsearch
 set hidden
 
-" Higlight trailing whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+func! WordProcessor()
+  " movement changes
+  map j gj
+  map k gk
+  " formatting text
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  setlocal wrap
+  setlocal linebreak
+  setlocal spell spelllang=da
+endfu
+com! WP call WordProcessor()
+
+autocmd FileType markdown WP
 " }}}
 
 " Maps: {{{
