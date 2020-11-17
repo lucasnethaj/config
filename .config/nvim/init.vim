@@ -18,6 +18,7 @@ Plug 'vim-scripts/L9' "Dependency of Fzf
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
+Plug 'dhruvasagar/vim-table-mode'
 " Sugar
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
@@ -52,7 +53,7 @@ inoremap <silent><expr> <Tab>
 filetype plugin on
 "Uncomment to override defaults:
 "let g:instant_markdown_slow = 1
-" let g:instant_markdown_autostart = 0
+"let g:instant_markdown_autostart = 0
 "let g:instant_markdown_open_to_the_world = 1
 "let g:instant_markdown_allow_unsafe_content = 1
 "let g:instant_markdown_allow_external_content = 0
@@ -61,8 +62,11 @@ let g:instant_markdown_mathjax = 1
 "let g:instant_markdown_autoscroll = 0
 "let g:instant_markdown_port = 8888
 "let g:instant_markdown_python = 1
+let g:instant_markdown_browser = "qutebrowser"
 
-"	}}}
+let g:table_mode_corner='|'
+
+"}}}
 
 " Sets: {{{
 set number
@@ -82,8 +86,20 @@ set undofile
 set incsearch
 set hidden
 
-" Higlight trailing whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+func! WordProcessor()
+  " movement changes
+  map j gj
+  map k gk
+  " formatting text
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  setlocal wrap
+  setlocal linebreak
+  setlocal spell spelllang=da
+endfu
+com! WP call WordProcessor()
+
+autocmd FileType markdown WP
 " }}}
 
 " Maps: {{{
@@ -96,11 +112,14 @@ map <C-P> "+p
 
 map <C-s> :write<CR>
 map <F1> :NERDTreeToggle<CR>
+map <leader>ft :NERDTreeToggle<CR>
 map <leader>bf :FufBuffer<CR>
 map <leader>bh :Startify<CR>
 map <leader>ff :FufFile<CR>
 map <leader>fb :Ranger<CR>
 map <leader>fd :FufDir<CR>
+
+map <leader>ss :CocSearch 
 
 map <leader>wn :tabnew<CR>
 map <S-Tab> :tabNext<CR>

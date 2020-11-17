@@ -71,7 +71,7 @@ font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = C bspwm D space C memory cpu filesystem D 
 modules-center = C xwindow D
-modules-right = C backlight mpd pulseaudio date D space C powermenu D
+modules-right = C mpd player-mpris-tail pulseaudio date D space C powermenu D
 
 tray-position = right
 tray-padding = 2
@@ -325,6 +325,14 @@ bar-volume-fill-background = ${colors.module-background}
 bar-volume-indicator-background = ${colors.module-background}
 label-muted-background = ${colors.module-background}
 label-volume-background = ${colors.module-background}
+
+[module/player-mpris-tail]
+type = custom/script
+exec = /home/lucas/.local/src/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{icon} {:t20:{artist}:} - {:t20:{title}:} '
+; exec = ~/.local/src/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{icon} {:artist:t18:{artist}:}{:artist: - :}{:t20:{title}:}  %{A1:~/.local/src/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:} ⏮ %{A} %{A1:~/.local/src/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:~/.local/src/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:} ⏭ %{A}'
+click-left = /home/lucas/.local/src/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause &
+tail = true
+format-background = ${colors.module-background}
 
 [module/mpd]
 type = internal/mpd

@@ -3,7 +3,7 @@ configuration {
     display-window:                 "Window";
     show-icons:true;
 	 icon-theme:							"Papirus";
-	 modi:									"window,ssh,drun";
+	 modi:									"drun,calc,emoji,window,ssh";
 }
  
 * {
