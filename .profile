@@ -17,6 +17,7 @@ export BROWSER=/usr/bin/firefox
 export TERMINAL=/usr/bin/termite
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=/usr/bin/nvim
+export LESSHISTFILE=-
 export VISUAL=/usr/bin/nvim
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtkrc-2.0"
 export GOPATH="$HOME/.local/go"

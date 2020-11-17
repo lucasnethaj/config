@@ -11,7 +11,7 @@
 # ASCII Art http://www.patorjk.com/software/taag/#p=display&f=Fire%20Font-s&t=SXHKDRC
 
 # Cleanly quit bspwm
-alt + shift + q
+super + shift + q
 	bspc quit 
 
 # ______________
@@ -186,10 +186,6 @@ super + Tab
 alt + c
   CM_LAUNCHER=rofi clipmenu
 
-# Univode Picker
-alt + u
-	unipicker --comand "rofi -dmenu"
-
 # File search
 alt + f
 	drill-search-gtk
@@ -198,8 +194,17 @@ alt + f
 ctrl + alt + p
 		  exec ~/.config/rofi/power/powermenu.sh
 
+# Passmenu
 alt + p
 	rofi-pass
+
+# Calculator
+alt + q
+  rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | xclip"
+
+# Unicode picker
+alt + u
+	rofi -show emoji
 
 # Start Terminal
 alt + ctrl + Return

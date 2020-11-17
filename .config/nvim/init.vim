@@ -53,7 +53,7 @@ inoremap <silent><expr> <Tab>
 filetype plugin on
 "Uncomment to override defaults:
 "let g:instant_markdown_slow = 1
-" let g:instant_markdown_autostart = 0
+"let g:instant_markdown_autostart = 0
 "let g:instant_markdown_open_to_the_world = 1
 "let g:instant_markdown_allow_unsafe_content = 1
 "let g:instant_markdown_allow_external_content = 0
@@ -112,11 +112,14 @@ map <C-P> "+p
 
 map <C-s> :write<CR>
 map <F1> :NERDTreeToggle<CR>
+map <leader>ft :NERDTreeToggle<CR>
 map <leader>bf :FufBuffer<CR>
 map <leader>bh :Startify<CR>
 map <leader>ff :FufFile<CR>
 map <leader>fb :Ranger<CR>
 map <leader>fd :FufDir<CR>
+
+map <leader>ss :CocSearch 
 
 map <leader>wn :tabnew<CR>
 map <S-Tab> :tabNext<CR>
