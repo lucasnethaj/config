@@ -71,7 +71,8 @@ font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = C bspwm D space C memory cpu filesystem D 
 modules-center = C xwindow D
-modules-right = C mpd player-mpris-tail pulseaudio date D space C powermenu D
+modules-right = C mpd player-mpris-tail pulseaudio D space C date D 
+; space C powermenu D
 
 tray-position = right
 tray-padding = 2

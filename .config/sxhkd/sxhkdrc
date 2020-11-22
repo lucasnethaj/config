@@ -54,16 +54,10 @@ super + i
 #
 
 #/---------------\
-# Autopresel (split window in its largest dimension)
-ctrl + space
-	auto-presel
-	
 # Presel window for splitting in certain direction
-
-# Presel vim keys
-alt + ctrl + {h,j,k,l}
+super + p; {h,j,k,l}
 	bspc node -p \~{west,south,north,east}
-
+	
 # Set splitting ratio of windows
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
@@ -111,6 +105,10 @@ super + shift + {a, s, w, d}
 super + ctrl + {h,j,k,l}
 	bspwm_resize.sh {west,south,north,east}
 #\---------------/
+#/---------------\
+#Tabbing
+super + r; {h,j,k,l,d}
+	alltab-bspwm.sh {west,south,north,east,detach}
 
 # ______________    
 #

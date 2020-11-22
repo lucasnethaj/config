@@ -6,20 +6,14 @@
 "			are just installed from https://github.com/*/*.git
 
 call plug#begin()
-" Syntax
+"" Syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-" Utils
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fugitive'
-Plug 'vim-scripts/L9' "Dependency of Fzf
-Plug 'vim-scripts/FuzzyFinder'
+"" Utils
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 Plug 'dhruvasagar/vim-table-mode'
-" Sugar
+"" Sugar
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'dracula/vim',{'as':'dracula'}
@@ -27,13 +21,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 call plug#end()
 " }}}
-
 " Plugin Configuration: {{{
-colorscheme gruvbox
-hi Normal guibg=NONE ctermbg=NONE
-" let g:airline_theme='dracula'
-
-let g:ranger_map_keys = 0
+filetype plugin on
 
 set pyxversion=3
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -50,25 +39,22 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
-filetype plugin on
-"Uncomment to override defaults:
-"let g:instant_markdown_slow = 1
 "let g:instant_markdown_autostart = 0
-"let g:instant_markdown_open_to_the_world = 1
-"let g:instant_markdown_allow_unsafe_content = 1
-"let g:instant_markdown_allow_external_content = 0
 let g:instant_markdown_mathjax = 1
-"let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
 "let g:instant_markdown_autoscroll = 0
 "let g:instant_markdown_port = 8888
-"let g:instant_markdown_python = 1
 let g:instant_markdown_browser = "qutebrowser"
 
 let g:table_mode_corner='|'
 
-"}}}
+let g:netrw_banner=0
+let g:netrw_liststyle=3
 
-" Sets: {{{
+"}}}
+" Config: {{{
+colorscheme gruvbox
+hi Normal guibg=NONE ctermbg=NONE
+
 set number
 set relativenumber
 set autoread
@@ -80,11 +66,11 @@ set tabstop=3 softtabstop=3
 set noexpandtab
 set showmatch
 set autoindent
-set noswapfile
-set nobackup
+set dir=~/.local/tmp
 set undofile
 set incsearch
 set hidden
+set path=.**
 
 func! WordProcessor()
   " movement changes
@@ -101,7 +87,6 @@ com! WP call WordProcessor()
 
 autocmd FileType markdown WP
 " }}}
-
 " Maps: {{{
 let mapleader = (" ")
 " Exit terminal mode with ESC
@@ -111,17 +96,19 @@ vnoremap <C-c> "*y :let @+=@*<CR>
 map <C-P> "+p
 
 map <C-s> :write<CR>
-map <F1> :NERDTreeToggle<CR>
-map <leader>ft :NERDTreeToggle<CR>
-map <leader>bf :FufBuffer<CR>
+map <F1> :12Lexplore<CR>
+map <leader>ft :12Lexplore<CR>
+map <leader>bf :b 
 map <leader>bh :Startify<CR>
-map <leader>ff :FufFile<CR>
+map <leader>bn :bNext<CR>
+map <leader>ff :find ./
 map <leader>fb :Ranger<CR>
 map <leader>fd :FufDir<CR>
 
 map <leader>ss :CocSearch 
 
 map <leader>wn :tabnew<CR>
+map <leader>wc :close<CR>
 map <S-Tab> :tabNext<CR>
 map <leader>ws :split<CR>
 map <leader>wv :vsplit<CR>
