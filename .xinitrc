@@ -9,6 +9,7 @@ usermodmap=$XDG_CONFIG_HOME/Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+xsetroot -name $USER
 
 setxkbmap -option caps:escape
 # merge in defaults and keymaps
@@ -47,6 +48,7 @@ case $session in
 	deepin 			  ) exec dbus-launch --sh-syntax --exit-with-session startdde;;
 	enlightenment 	  ) exec dbus-launch --sh-syntax --exit-with-session enlightenment_start;;
 	gnome 			  ) exec dbus-launch --sh-syntax --exit-with-session gnome-session;;
+	dwm 			  ) exec dwm-session;;
 	bspwm 			  ) exec bspwm-session;;
     i3|i3wm           ) exec dbus-launch --sh-syntax --exit-with-session i3;;
     lxde 	          ) exec dbus-launch --sh-syntax --exit-with-session startlxde;;

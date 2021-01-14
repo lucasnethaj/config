@@ -30,4 +30,4 @@ eval $(awk -F'=' '/Exec=/ {print $2}' ~/.config/autostart/lxrandr-autostart.desk
 gnome-keyring-daemon &
 thunar --daemon &
 clipmenud &
-nextcloud --background &
+# nextcloud --background &

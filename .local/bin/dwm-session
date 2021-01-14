@@ -1,0 +1,7 @@
+#!/bin/sh
+
+shotkey & 
+dwmst &
+picom &
+wallpaper
+dwm

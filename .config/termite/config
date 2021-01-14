@@ -8,7 +8,7 @@ clickable_url = true
 dynamic_title = true
 font = Monospace 9
 #fullscreen = true
-#icon_name = terminal
+icon_name = terminal
 #mouse_autohide = false
 #scroll_on_output = false
 #scroll_on_keystroke = true
@@ -16,7 +16,7 @@ font = Monospace 9
 # and setting it to a negative value means "infinite scrollback"
 scrollback_lines = 10000
 #search_wrap = true
-#urgent_on_bell = true
+urgent_on_bell = false
 #hyperlinks = false
 
 # $BROWSER is used by default if set, with xdg-open as a fallback

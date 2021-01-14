@@ -28,3 +28,11 @@
 *color21:      #e8e6df
 
 Xcursor.theme: bloom
+
+! DWM Colors
+dwm.normbordercolor:#282A36
+dwm.normbgcolor:    #080329
+dwm.normfgcolor:    #F8F8F2
+dwm.selbordercolor: #BD93F9
+dwm.selbgcolor:     #080329
+dwm.selfgcolor:     #50FA7b 

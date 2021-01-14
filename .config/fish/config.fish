@@ -1,9 +1,14 @@
-pfetch
+# Greeting
+set GREETING ' '(uname -r)						# Kernel Release
+set -a GREETING ' :'(pacman -Qq | wc -l)','	# Package Count
+set -a GREETING (uptime --pretty)				# Uptime
+echo -n $GREETING
+
 source ~/.aliases
 source ~/.config/profile
 
 bind  configEdit.sh
-bind  ranger
+bind  $FILEBROWSER
 
 # Adds !! and !$ syntax for acessing previous command and argument
 bind ! __history_previous_command
@@ -70,3 +75,39 @@ function man --wraps man --description 'Format and display manual pages'
     end
     command man $argv
 end
+
+# SSH Agent 
+function __ssh_agent_is_started -d "check if ssh agent is already started"
+   if begin; test -f $SSH_ENV; and test -z "$SSH_AGENT_PID"; end
+      source $SSH_ENV > /dev/null
+   end
+
+   if test -z "$SSH_AGENT_PID"
+      return 1
+   end
+
+   ps -ef | grep $SSH_AGENT_PID | grep -v grep | grep -q ssh-agent
+   #pgrep ssh-agent
+   return $status
+end
+
+
+function __ssh_agent_start -d "start a new ssh agent"
+   ssh-agent -c | sed 's/^echo/#echo/' > $SSH_ENV
+   chmod 600 $SSH_ENV
+   source $SSH_ENV > /dev/null
+   true  # suppress errors from setenv, i.e. set -gx
+end
+
+
+function fish_ssh_agent --description "Start ssh-agent if not started yet, or uses already started ssh-agent."
+   if test -z "$SSH_ENV"
+      set -xg SSH_ENV $HOME/.ssh/environment
+   end
+
+   if not __ssh_agent_is_started
+      __ssh_agent_start
+   end
+end
+
+fish_ssh_agent

@@ -27,6 +27,7 @@ configuration {
     padding:                     0px;
     spacing:                     0px;
 }
+
 window {
     location:         northwest;
     width:            200px;
@@ -34,8 +35,9 @@ window {
     padding:          4px;
     y-offset:		  25px;
 }
+
 listview {
-    lines:        17;
+    lines:        25;
     fixed-height: false;
     spacing:      2px;
     scrollbar:    false;
