@@ -1,43 +1,50 @@
 " Plugins: {{{
 " To install vim-plug plugin manager for neovim run the following
-" sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-"			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 "			Plugins are installed from remote git repository. Names without a url
-"			are just installed from https://github.com/*/*.git
+"			are just installed from https://github.com/*/*.git 
+func! InstallPluginManager()
+	:!sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' 
+endfu
+com! InstallPluginManager call InstallPluginManager()
 
 call plug#begin()
 "" Syntax
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 "" Utils
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode' 
+Plug '9mm/vim-closer'
 "" Sugar
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'vim-airline/vim-airline'
+" Plug 'lifepillar/gruvbox8'
 Plug 'morhetz/gruvbox'
 call plug#end()
 " }}}
 " Plugin Configuration: {{{
 filetype plugin on
+let g:airline_theme = 'dracula'
 
 set pyxversion=3
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+" inoremap <silent><expr> <Tab>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<Tab>" :
+"       \ coc#refresh()
 
 "let g:instant_markdown_autostart = 0
 let g:instant_markdown_mathjax = 1
@@ -53,6 +60,7 @@ let g:netrw_liststyle=3
 "}}}
 " Config: {{{
 colorscheme gruvbox
+
 hi Normal guibg=NONE ctermbg=NONE
 
 set number
@@ -92,8 +100,8 @@ let mapleader = (" ")
 " Exit terminal mode with ESC
 tnoremap <Esc> <C-\><C-n>
 
-vnoremap <C-c> "*y :let @+=@*<CR>
-map <C-P> "+p
+vnoremap <C-S-c> "*y :let @+=@*<CR>
+map <C-A-v> "+p
 
 map <C-s> :write<CR>
 map <F1> :12Lexplore<CR>
@@ -118,6 +126,11 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv 
 " }}}
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0:
