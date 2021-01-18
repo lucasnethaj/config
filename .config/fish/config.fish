@@ -1,5 +1,5 @@
 # Greeting
-set GREETING ' '(uname -r)						# Kernel Release
+set GREETING ' '(uname -r)						# Kernel Release
 set -a GREETING ' :'(pacman -Qq | wc -l)','	# Package Count
 set -a GREETING (uptime --pretty)				# Uptime
 echo -n $GREETING
