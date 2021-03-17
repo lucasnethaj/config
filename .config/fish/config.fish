@@ -1,7 +1,13 @@
 # Greeting
+<<<<<<< HEAD
 set GREETING ' '(uname -r)                     # Kernel Release
 set -a GREETING ' :'(pacman -Qq | wc -l)','    # Package Count
 set -a GREETING (uptime --pretty)               # Uptime
+=======
+set GREETING ' '(uname -r)						# Kernel Release
+set -a GREETING ' :'(pacman -Qq | wc -l)','	# Package Count
+set -a GREETING (uptime --pretty)				# Uptime
+>>>>>>> d059b91a56abed9255a9cfe2d40509877468c3cc
 echo -n $GREETING
 
 source ~/.config/aliases
