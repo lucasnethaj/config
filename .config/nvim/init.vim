@@ -9,10 +9,12 @@ com! InstallPluginManager call InstallPluginManager()
 
 call plug#begin()
 "" Syntax
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'neovim/nvim-lspconfig'
 "" Utils
 Plug 'tpope/vim-speeddating'
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
@@ -32,9 +34,23 @@ filetype plugin on
 let g:airline_theme = 'dracula'
 
 set pyxversion=3
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " use <tab> for trigger completion and navigate to the next complete item
 " function! s:check_back_space() abort
 "   let col = col('.') - 1
@@ -63,17 +79,19 @@ colorscheme gruvbox
 
 hi Normal guibg=NONE ctermbg=NONE
 
+set clipboard+=unnamedplus
 set number
 set relativenumber
 set autoread
 set mouse=a
 set showcmd
 set ft=dosini
-set shiftwidth=3
-set tabstop=3 softtabstop=3
-set noexpandtab
+set shiftwidth=4
+" set tabstop=3
+set preserveindent 
+" set copyindent noexpandtab
+" set autoindent
 set showmatch
-set autoindent
 set dir=~/.local/tmp
 set undofile
 set incsearch
@@ -82,6 +100,8 @@ set path=.**
 
 func! WordProcessor()
   " movement changes
+	map <silent> <leader>o :!openaspdf %<cr><cr>
+	map <silent> <leader>c :!compiletopdf %<cr><cr>
   map j gj
   map k gk
   " formatting text
@@ -90,10 +110,15 @@ func! WordProcessor()
   setlocal wrap
   setlocal linebreak
   setlocal spell spelllang=da
+	
+	fu! Compile()
+		pandoc -tpdf -o %:r.pdf %
+	endfu
 endfu
 com! WP call WordProcessor()
 
 autocmd FileType markdown WP
+
 " }}}
 " Maps: {{{
 let mapleader = (" ")
@@ -112,6 +137,7 @@ map <leader>bn :bNext<CR>
 map <leader>ff :find ./
 map <leader>fb :Ranger<CR>
 map <leader>fd :FufDir<CR>
+map <leader>tu :UndotreeToggle<CR>
 
 map <leader>ss :CocSearch 
 
@@ -120,6 +146,7 @@ map <leader>wc :close<CR>
 map <S-Tab> :tabNext<CR>
 map <leader>ws :split<CR>
 map <leader>wv :vsplit<CR>
+
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
@@ -132,5 +159,33 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv 
+
+" Go-to code definition
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnorema <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>p
+
 " }}}
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0:

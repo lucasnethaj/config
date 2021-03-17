@@ -30,9 +30,12 @@
 Xcursor.theme: bloom
 
 ! DWM Colors
+! #080329
 dwm.normbordercolor:#282A36
-dwm.normbgcolor:    #080329
+dwm.normbgcolor:    #282A36
 dwm.normfgcolor:    #F8F8F2
 dwm.selbordercolor: #BD93F9
-dwm.selbgcolor:     #080329
+dwm.selbgcolor:     #282A36
 dwm.selfgcolor:     #50FA7b 
+*.alpha:				  0.8
+/* *.font:				  DejaVu Sans Mono Nerd Font Complete Mono:pixelsize:14:antialias=true */

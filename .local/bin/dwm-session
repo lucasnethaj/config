@@ -1,7 +1,23 @@
 #!/bin/sh
 
-shotkey & 
-dwmst &
+on_exit() {
+	for child in $(jobs -p); do
+		jobs -p | grep -q $child && kill $child
+	done
+	# Extra paranoia
+	[ -d "${state_path}" && -w "${state_path}" ] && rm -rf -- "${state_path}"
+}
+
+# shotkey & 
+SXHKD_SHELL="/bin/dash"
+sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdwm &
+# exec /usr/lib/polkit-gnome-authentication-agent-1
+# dwmst &
+slstatus &
+clipmenud &
+mkfifo /tmp/backlightprcnt &
+tail -f /tmp/backlightprcnt | xob &
+volumewatch.py | xob &
 picom &
-wallpaper
+wallpaper &
 dwm

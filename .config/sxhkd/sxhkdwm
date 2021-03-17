@@ -1,0 +1,126 @@
+# Shortcuts for dwm
+
+##################################################
+# Runners
+##################################################
+
+alt + d
+	rofi -show drun
+
+alt + m; b
+	rofi-bluetooth
+
+alt + m; P
+	rofi-power
+
+alt + m; p
+	rofi-pass
+
+alt + m; c
+	CM_LAUNCHER=rofi clipmenu
+
+alt + m; alt + m
+	menus
+
+alt + m; u
+	rofi -show emoji
+
+alt + m; s
+	rofi -show ssh
+
+alt + m; n
+	nerdcheat.sh
+
+alt + m; s
+	instantsettings
+
+alt + m; q
+  rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | xclip"
+
+alt + f; alt + f
+	files
+
+##################################################
+# Applications
+##################################################
+
+alt + a; b
+	$BROWSER
+
+alt + shift + e
+	$TERMINAL -e $EDITOR
+
+alt + shift + f
+	$TERMINAL -e $FILEBROWSER
+
+alt + a; F
+	$GUI_FILEBROWSER
+
+alt + a; g
+	$GUI_EDITOR
+
+alt + a; i
+	$IMGVIEWER
+
+alt + a; p
+	$PDFREADER
+
+alt + a; m
+	$PLAYER
+
+alt + a; t
+	$TERMINAL
+
+##################################################
+# Files 
+##################################################
+
+alt + f; C
+	$TERMINAL -e $FILEBROWSER $XDG_CACHE_HOME
+
+alt + f; c
+	$TERMINAL -e $FILEBROWSER $XDG_CONFIG_HOME
+
+alt + f; d
+	$TERMINAL -e $FILEBROWSER $XDG_DATA_HOME
+
+alt + f; x
+	$TERMINAL -e $EDITOR $XINITRC
+
+##################################################
+# System
+##################################################
+
+# Reload sxhkd
+alt + s; r
+	pkill -USR1 -x sxhkd && notify-send reload
+
+alt + s; w
+	wallpaper
+
+alt + s; l
+	slock
+
+alt + s; {alt} + s
+	instantsettings
+
+{XF86AudioLowerVolume,XF86AudioRaiseVolume}
+	pactl set-sink-volume @DEFAULT_SINK@ {-5%,+5%} 
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle 
+
+{XF86MonBrightnessDown, XF86MonBrightnessUp}
+	backlight {-dec,-inc} 10 > /tmp/backlightprcnt
+
+Print 
+	sleep 0.2 ; scrot --select -f -l style=solid,width=1 -e 'mv $f ~/pix/screenshots' | xclip
+
+shift + Print 
+	sleep 0.2 ; scrot -e 'mv $f ~/pix/screenshots' | xclip
+
+ctrl + shift + Print 
+	sleep 0.2 ; scrot -u -e 'mv $f ~/pix/screenshots' | xclip
+
+XF86Sleep
+	systemctl suspend
