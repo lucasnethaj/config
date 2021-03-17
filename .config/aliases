@@ -1,0 +1,25 @@
+## Alias section 
+alias cp='cp -i'																		# Confirm before overwriting something
+alias df='df -h'                                                		# Human-readable sizes
+alias free='free -m'                                            		# Show sizes in MB
+alias gitu='git add . && git commit && git push'							# Push & commit every change
+alias cdr='cd `git rev-parse --show-toplevel`/\!*'							# Go to root git dir
+alias lsa='ls -A'																		# list all
+alias ls='ls --color=auto'															# enable colors for ls 
+alias f='$FILEBROWSER'																# terminal filemanager
+alias ff='xdg-opem (fzf)'
+alias plz='sudo'																		# Ask kindly
+alias suod='sudo'																		# Typos
+alias soda='doas'																		# Typos
+alias x='startx ~/.config/X11/xinitrc'														# Start Xorg	
+alias e='$EDITOR'																		# Edit stuff
+alias o='xdg-open'																	# File handler
+alias rrm='rm -r'																		# Recursive remove
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'	# For Config files
+alias pluto='julia -L ~/.julia/juliaPluto'									# Shortcut for the pluto notebook
+alias dropdown='termite --class dropdown -e "zsh -i" &'
+
+alias caps='xdotool key Caps_Lock'												# Toggle capslock key since it should be disabled anyway
+
+alias zshreload='source $HOME/.zshrc'											# Reload you zsh config
+alias xnest='Xephyr -br -ac -noreset -screen 800x600 :1'					# Start a nested X server

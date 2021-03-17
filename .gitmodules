@@ -1,0 +1,10 @@
+[submodule ".local/src/desktop/yay"]
+	path = .local/src/desktop/yay
+	url = https://aur.archlinux.org/yay.git
+[submodule ".local/src/desktop/slstatus"]
+	path = .local/src/desktop/slstatus
+	url = https://git.suckless.org/slstatus
+[submodule ".local/src/desktop/shotkey"]
+	path = .local/src/desktop/shotkey
+	url = https://github.com/lucasnethaj/shotkey.git
+	branch = priv

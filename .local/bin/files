@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ~/dox
+xdg-open $(find -type f | rofi -window-title "Filer" -dmenu)

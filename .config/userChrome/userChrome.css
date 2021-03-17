@@ -3,15 +3,17 @@
 @import "global/global.css";
 @import "icons/icons.css";
 /* @import "tabbar/tabbar.css"; */
+/* @import "hide_tabs_with_one_tab.css"; */
 @import "navbar/navbar.css";
 @import "personalbar/personalbar.css";
 @import "popup/popup.css";
 @import "urlbar/urlbar.css";
 @import "findbar/findbar.css";
 @import "tabs_on_bottom.css";
-@import "hide_tabs_with_one_tab.css";
-/* @import "tabs_fill_available_width.css"; */
+@import "tabs_fill_available_width.css";
 @import "multi-row_tabs.css";
+@import "centered_tab_content.css";
+@import "click_selected_tab_to_focus_urlbar.css";
 
 :root {
 <<<<<<< HEAD

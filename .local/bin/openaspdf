@@ -1,0 +1,30 @@
+#!/bin/sh
+
+file="$1"
+compileddir="$HOME/dox/compiled/"
+basename="${file%.*}"
+
+if test ! -f "$compileddir$basename.pdf"; then
+    case $file in
+    	*.md)
+	    pandoc -tpdf -o "$compileddir$basename.pdf" "$file";
+	    ;;
+    	*.ms)
+	    groff -e -Dutf-8 -Tpdf "$file" > "$compileddir$basename.pdf";
+	    ;;
+    	*.docx | *.odt)
+	    libreoffice --convert-to pdf --outdir $compileddir "$file";
+	    echo 'document'
+	    ;;
+    	*.pdf)
+	    zathura $file
+	    ;;
+    	*)
+	    echo 'Filetype not recognised'
+	    ;;
+    esac
+fi
+
+if test -f "$compileddir$basename.pdf"; then
+    zathura "$compileddir$basename.pdf" &
+fi
