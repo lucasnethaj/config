@@ -17,26 +17,35 @@ set $right l
 # smart_gaps on
 gaps inner 6
 gaps outer -6
-default_border pixel 4
+default_border pixel 2
+
+client.focused #ffbbff #ffbbff #000000
+
+focus_wrapping no
 
 # Your preferred terminal emulator
     set $term st
     # Your preferred application launcher
     # Note: pass the final command to swaymsg so that the resulting window can be opened
     # on the original workspace that the command was run on.
-    set $menu dmenu_path | dmenu | xargs swaymsg exec --
+    # set $menu dmenu_path | dmenu | xargs swaymsg exec --
+    set $menu dmenu_path | bemenu -H 30 | xargs swaymsg exec --
+    set $menu instantmenu_smartrun
 
     ### Output configuration
     #
     # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-    output * bg ~/pix/wall/403920_in-rainbows-radiohead-wallpaper-images_1280x800_h.png fill
-    #
-    # Example configuration:
-    #
-    #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-    output eDP-1 resolution 1920x1080 position 320,1440
-    output HDMI-A-1 resolution 2560x1440 position 0,0
-    #
+    # set $wall exec wallpaper -o
+    exec waypaper &
+    # output * bg ~/pix/wall/Gorillaz.jpg fill
+    # output * bg ~/pix/wall/ny022g227qp61.jpg fill
+    # output * bg ~/pix/wall/tawbr2jclzp61.jpg fill
+
+    # output eDP-1 resolution 1920x1080 position 320,1440
+    # output HDMI-A-1 resolution 2560x1440 position 0,0
+    output eDP-1 position 0,0 
+    output HDMI-A-1 position 1920,0
+    
     # You can get the names of your outputs by running: swaymsg -t get_outputs
 
     ### Idle configuration
@@ -52,34 +61,28 @@ default_border pixel 4
     # your displays after another 300 seconds, and turn your screens back on when
     # resumed. It will also lock your screen before your computer goes to sleep.
 
-    ### Input configuration
-    #
-    # Example configuration:
-    #
-    #   input "2:14:SynPS/2_Synaptics_TouchPad" {
-    #       dwt enabled
-    #       tap enabled
-    #       natural_scroll enabled
-    #       middle_emulation enabled
-    #   }
-    #
-    # You can get the names of your inputs by running: swaymsg -t get_inputs
-    # Read `man 5 sway-input` for more information about this section.
-    
     input * {
     	xkb_layout "dk,us"
     	xkb_options "caps:escape"
-	natural_scroll "enabled"
     }
-    input "ELAN1200:00 04F3:309F Touchpad" {
+
+    input "1267:12447:ELAN1200:00_04F3:309F_Touchpad" {
+	natural_scroll "enabled"
     }
 
     ### Key bindings
     #
     # Basics:
     #
+    
+	exec_always disablelaptopdisplay.sh
+    	set $laptop "eDP-1"
+    	bindswitch --reload --locked lid:on output $laptop disable
+    	bindswitch --reload --locked lid:off output $laptop enable
+
     	# Start a terminal
     	bindsym $mod+shift+Return exec $term
+    	bindsym ctrl+alt+t exec $term
 
     	# Kill focused window
     	bindsym $mod+Shift+c kill
@@ -87,6 +90,39 @@ default_border pixel 4
     	# Start your launcher
     	bindsym $mod+d exec rofi -show drun
     	bindsym $mod+p exec $menu
+
+	# Lockscreen
+	bindsym ctrl+alt+l exec swaylock --screenshots --effect-blur 6x6 --fade-in .3 --grace 2
+
+	# Control audio out
+	bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+	bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% 
+	
+	bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
+	
+	# Control monitor brightness
+	bindsym --locked XF86MonBrightnessDown exec backlight -dec 10
+	bindsym --locked XF86MonBrightnessUp exec backlight -inc 10
+	
+	# Take screenshots
+	bindsym Print exec \
+	grim -g "$(slurp)" - | \
+	tee ~/pix/screenshots/$(date +%F-%T_sel).png | \
+	wl-copy
+	
+	bindsym shift+Print exec \
+	grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | \
+	tee ~/pix/screenshots/$(date +%F-%T_display).png | \
+	wl-copy
+
+	bindsym ctrl+shift+Print exec \
+	grim - | \
+	tee ~/pix/screenshots/$(date +%F-%T_screen).png | \
+	wl-copy
+	
+	bindsym XF86Sleep systemctl suspend
+
 
     	# Drag floating windows by holding down $mod and left mouse button.
     	# Resize them with right mouse button + $mod.

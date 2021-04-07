@@ -10,7 +10,7 @@
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    color: #ffbbff;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -40,7 +40,7 @@ window#waybar.chromium {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #ffbbff;
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
 }
@@ -81,8 +81,8 @@ window#waybar.chromium {
 #mpd {
     padding: 0 10px;
     margin: 0 4px;
-    color: #ffffff;
-    border-radius:14px;
+    color: #ffbbff;
+    /* border-radius:14px; */
     /* background-image: linear-gradient(45deg, #6303B1, #ff0099); */
 }
 
@@ -102,23 +102,20 @@ window#waybar.chromium {
 }
 
 #clock {
-    background-color: #64727D;
+    box-shadow: inset 0 -3px#64727D;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
+    box-shadow: inset 0 -3px #26A65B;
 }
 
 @keyframes blink {
     to {
         background-color: #ffffff;
-        color: #000000;
     }
 }
 
@@ -137,91 +134,88 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    box-shadow: inset 0 -3px #2ecc71;
 }
 
 #memory {
-    background-color: #9b59b6;
+    box-shadow: inset 0 -3px #9b59b6;
 }
 
 #backlight {
-    background-color: #90b1b1;
+    box-shadow: inset 0 -3px #90b1b1;
 }
 
 #network {
-    background-color: #2980b9;
+    box-shadow: inset 0 -3px #2980b9;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    box-shadow: inset 0 -3px #f53c3c;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    box-shadow: inset 0 -3px #f1c40f;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
+    box-shadow: inset 0 -3px #90b1b1;
     color: #2a5c45;
 }
 
 #custom-media {
-    background-color: #66cc99;
+    box-shadow: inset 0 -3px #66cc99;
     color: #2a5c45;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    box-shadow: inset 0 -3px #66cc99;
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    box-shadow: inset 0 -3px #ffa000;
 }
 
 #temperature {
-    background-color: #f0932b;
+    box-shadow: inset 0 -3px #f0932b;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    box-shadow: inset 0 -3px #eb4d4b;
 }
 
 #tray {
-    background-color: #2980b9;
+    box-shadow: inset 0 -3px #2980b9;
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    box-shadow: inset 0 -3px #2d3436;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
+    box-shadow: inset 0 -3px #ecf0f1;
     color: #2d3436;
 }
 
 #mpd {
-    background-color: #66cc99;
+    box-shadow: inset 0 -3px #66cc99;
     color: #2a5c45;
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
+    box-shadow: inset 0 -3px #f53c3c;
 }
 
 #mpd.stopped {
-    background-color: #90b1b1;
+    box-shadow: inset 0 -3px #90b1b1;
 }
 
 #mpd.paused {
-    background-color: #51a37a;
+    box-shadow: inset 0 -3px #51a37a;
 }
 
 #language {
-    background: #00b093;
-    color: #740864;
+    box-shadow: inset 0 -3px #00b093;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;

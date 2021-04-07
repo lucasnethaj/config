@@ -7,3 +7,14 @@ max=`find $imgdir/* | wc -l`
 sel=`find $imgdir/* | sed "${r}q;d"`
 
 feh --bg-fill -. "${sel}"
+# case `loginctl show-session 2- p Type` in
+#     '*X11')
+# 	feh --bg-fill -. "${sel}"
+# 	;;
+#     '*wayland')
+#     	swaybg -m fill -i "$sel)"
+# 	;;
+# 	*)
+# 	    echo unknown session
+# 	;;
+# esac

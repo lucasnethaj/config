@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 set previewer ~/.config/lf/preview
 # interpreter for shell commands (needs to be POSIX compatible)
->>>>>>> d059b91a56abed9255a9cfe2d40509877468c3cc
 set shell sh
 set ifs "\n"
 set icons
@@ -12,11 +9,8 @@ set previewer ~/.config/lf/pv
 set cleaner ~/.config/lf/cls
 set scrolloff 10
 
-<<<<<<< HEAD
-=======
 # set previewer ~/.config/lf/pv
 set cleaner ~/.config/lf/clear_img.sh
->>>>>>> d059b91a56abed9255a9cfe2d40509877468c3cc
 map i $~/.config/lf/pv.sh $f | less -R 
 map i $LESSOPEN='| ~/.config/lf/pv.sh %s' less -R $f
 

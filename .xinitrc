@@ -9,10 +9,7 @@ usermodmap=$XDG_CONFIG_HOME/Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-<<<<<<< HEAD
 setxkbmap dk
-=======
->>>>>>> d059b91a56abed9255a9cfe2d40509877468c3cc
 setxkbmap -option caps:escape
 # merge in defaults and keymaps
 
@@ -46,11 +43,8 @@ pidof -s runit &&
 	setsid -f pulseaudio --start --exit-idle-time=-1 >/dev/null 2>&1
 
 if [ $TERM = linux ] || [ -e "/etc/systemd/system/graphical.target.wants/xlogin@$(whoami).service" ] ; then
-<<<<<<< HEAD
 # Here dwm is kept as default
-=======
 # Here Bspwm is kept as default
->>>>>>> d059b91a56abed9255a9cfe2d40509877468c3cc
 session=${1:-dwm}
 
 case $session in
