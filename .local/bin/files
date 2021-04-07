@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd ~/dox
+cd ~/dox/skool
 xdg-open $(find -type f | rofi -window-title "Filer" -dmenu)
