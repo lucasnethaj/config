@@ -1,7 +1,7 @@
 #!/bin/sh
 
 file="$1"
-compileddir="$HOME/dox/compiled/"
+compileddir="$HOME/dox/skool/compiled/"
 basename="${file%.*}"
 
 if test ! -f "$compileddir$basename.pdf"; then

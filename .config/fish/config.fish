@@ -1,14 +1,10 @@
 # Greeting
-<<<<<<< HEAD
-set GREETING ' '(uname -r)                     # Kernel Release
-set -a GREETING ' :'(pacman -Qq | wc -l)','    # Package Count
-set -a GREETING (uptime --pretty)               # Uptime
-=======
-set GREETING ' '(uname -r)						# Kernel Release
-set -a GREETING ' :'(pacman -Qq | wc -l)','	# Package Count
-set -a GREETING (uptime --pretty)				# Uptime
->>>>>>> d059b91a56abed9255a9cfe2d40509877468c3cc
-echo -n $GREETING
+#set GREETING ' '(uname -r)                     # Kernel Release
+#set -a GREETING ' :'(pacman -Qq | wc -l)','    # Package Count
+#set -a GREETING (uptime --pretty)               # Uptime
+#set GREETING ' '(uname -r)                     # Kernel Release
+#set -a GREETING (uptime --pretty)               # Uptime
+# echo -n $GREETING
 
 source ~/.config/aliases
 source ~/.config/profile
@@ -21,18 +17,7 @@ bind \cF lfcd
 # Adds !! and !$ syntax for acessing previous command and argument
 # bind ! __history_previous_command
 bind \$ __history_previous_command_arguments
-bind ! __history_number_command
-
-function __history_number_command
-  set n (commandline -t)
-  if string match '!' $n
-    commandline -t $history[1]; commandline -f repaint
-  else if string match -r '^[0-9]+$' $n
-    commandline -t $history[$n]; commandline -f repaint
-  else
-    commandline -i !
-   end
-end
+bind ! __history_previous_command
 
 function __history_previous_command
   switch (commandline -t)
@@ -155,16 +140,16 @@ end
 
 fish_ssh_agent
 
-# Start X at login
-# if status is-login
-#     if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-#         exec startx -- -keeptty
-#     end
-# end
-
-# Start Sway at login
+#Start X at login
 if status is-login
     if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-        exec sway
+        exec startx -- -keeptty
     end
 end
+
+# # Start Sway at login
+# if status is-login
+#     if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+#         exec sway
+#     end
+# end

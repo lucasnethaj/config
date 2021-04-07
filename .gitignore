@@ -2,3 +2,5 @@
 .config/nvim/plugged/*
 .config/ranger/bookmarks
 .config/ranger/history
+Session.vim
+tags

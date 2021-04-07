@@ -11,7 +11,7 @@ call plug#begin()
 "" Syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-Plug 'neovim/nvim-lspconfig'
+" Plug 'neovim/nvim-lspconfig'
 "" Utils
 Plug 'tpope/vim-speeddating'
 Plug 'dart-lang/dart-vim-plugin'
@@ -20,6 +20,8 @@ Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 Plug 'dhruvasagar/vim-table-mode' 
 Plug '9mm/vim-closer'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 "" Sugar
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
@@ -62,16 +64,12 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "       \ <SID>check_back_space() ? "\<Tab>" :
 "       \ coc#refresh()
 
-"let g:instant_markdown_autostart = 0
-let g:instant_markdown_mathjax = 1
-"let g:instant_markdown_autoscroll = 0
-"let g:instant_markdown_port = 8888
-let g:instant_markdown_browser = "qutebrowser"
-
 let g:table_mode_corner='|'
 
 let g:netrw_banner=0
 let g:netrw_liststyle=3
+
+set rtp+=~/usr/bin/fzf
 
 "}}}
 " Config: {{{
@@ -129,18 +127,26 @@ vnoremap <C-S-c> "*y :let @+=@*<CR>
 map <C-A-v> "+p
 
 map <C-s> :write<CR>
+
+" Navigation Files & buffers
 map <F1> :12Lexplore<CR>
 map <leader>ft :12Lexplore<CR>
 map <leader>bf :b 
 map <leader>bh :Startify<CR>
-map <leader>bn :bNext<CR>
-map <leader>ff :find ./
-map <leader>fb :Ranger<CR>
-map <leader>fd :FufDir<CR>
+" map <leader>ff :find ./
+map <leader>ff :FZF!<CR>
+map <leader>fb :Buffers!<CR>
+
+noremap <C-A-j> :bnext<CR>
+noremap <C-A-k> :bprevious<CR>
+noremap <C-A-l> :tabnext<CR>
+noremap <C-A-h> :tabprevious<CR>
+
 map <leader>tu :UndotreeToggle<CR>
 
 map <leader>ss :CocSearch 
 
+"Windows
 map <leader>wn :tabnew<CR>
 map <leader>wc :close<CR>
 map <S-Tab> :tabNext<CR>
@@ -153,6 +159,7 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
+" Move lines up/down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -187,5 +194,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>p
 
-" }}}
+"Navigation }}}
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0:
